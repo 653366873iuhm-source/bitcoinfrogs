@@ -16,7 +16,7 @@
   const AGENTIC = "com.binance.agentic-wallet";
   let awReady = false; // set once the Agentic Wallet code below is initialised
   const qsLang = new URLSearchParams(location.search).get("lang");
-  let lang = qsLang === "zh" || qsLang === "en" ? qsLang : localStorage.getItem("frogs-lang") || "en";
+  let lang = "en"; // English only
   let pay = "usdt", state = null, referrer = null;
   // wallet session
   const W = { provider: null, name: "", icon: "", rdns: "", account: null, chainId: null, handle: null, agentOk: false, status: null, bnb: null, usdt: null, busy: false };
@@ -24,7 +24,7 @@
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
   function setLang(l) {
-    lang = l; localStorage.setItem("frogs-lang", l);
+    lang = l = "en";
     document.body.classList.remove("lang-en", "lang-zh"); document.body.classList.add("lang-" + l);
     document.documentElement.lang = l === "zh" ? "zh-CN" : "en";
     $("langBtn").textContent = l === "zh" ? "English" : "中文";
@@ -907,7 +907,7 @@
     return `<div class="mp3d" id="mp3d" tabindex="0" role="img" aria-label="${c.b.name} Bitcoin Frogs card. Drag or use the arrow keys to rotate."><div class="mpglow" style="background:${c.b.color}"></div>
       <div class="mpcard" id="mpCard">
         <div class="mpface front" style="--metal:${c.b.metal}"><div class="mptop"><span>BITCOIN FROGS<br>GENESIS 2026</span><span class="mpcoin"></span><span class="r">TIER 0${c.level + 1}<br>${c.b.name.toUpperCase()}</span></div>
-          <div class="mpwell"><div class="mpart"><div class="mpseal"><b>FROGS</b><i>2026</i></div><div class="mpplate"><b>比特蛙</b><img src="assets/frogs/frog1.png" alt=""></div><div class="mptag">THE AI AGENT MINT<br>OF BNB CHAIN · ${esc(c.handle)}.ai</div><div class="mpholo"><b>FROGS</b><i>2026</i><em>${c.b.name.toUpperCase()}</em><small>COLLECTOR'S<br>EDITION</small></div></div></div>
+          <div class="mpwell"><div class="mpart"><div class="mpseal"><b>FROGS</b><i>2026</i></div><div class="mpplate"><b>FROGS</b><img src="assets/frogs/frog1.png" alt=""></div><div class="mptag">THE AI AGENT MINT<br>OF BNB CHAIN · ${esc(c.handle)}.ai</div><div class="mpholo"><b>FROGS</b><i>2026</i><em>${c.b.name.toUpperCase()}</em><small>COLLECTOR'S<br>EDITION</small></div></div></div>
           <div class="mpfoot"><span>BUILT FOR AGENTIC WALLETS · AGENT ID ONLY</span><span class="mono">${esc(c.handle)}.ai</span></div></div>
         <div class="mpface back" aria-hidden="true"><div class="mpback"><span class="mppill">${c.b.name.toUpperCase()} BORDER</span><img class="mplogo" src="assets/frogs/frog1.png" alt=""><span class="mpqr">${qrSvg("https://" + SITE_HOST)}</span><span class="mpscan">SCAN · ${SITE_HOST}</span>
           <dl>${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl><p>© 2026 BITCOIN FROGS · MY AGENT IS A BITCOIN FROG</p></div></div>

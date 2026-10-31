@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>比特蛙 Bitcoin Frogs 白皮书 · Whitepaper</title>
-<meta name="description" content="Whitepaper of 比特蛙 Bitcoin Frogs ($Frogs): fair mint on BNB Smart Chain for .ai Agent IDs. Sale opens 2026-10-31 21:30 CST. Independent project, not affiliated with Binance.">
+<title>Bitcoin Frogs Whitepaper</title>
+<meta name="description" content="Whitepaper of Bitcoin Frogs ($Frogs): fair mint on BNB Smart Chain for .ai Agent IDs. Sale opens 2026-10-31 21:30 CST. Independent project, not affiliated with Binance.">
 <link rel="icon" href="../assets/frog-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="../assets/frog-180.png" sizes="180x180">
 <link rel="canonical" href="https://bitcoinfrogs.onrender.com/whitepaper/">
@@ -27,9 +27,9 @@
 </head>
 <body class="lang-en live wpbody">
 <header><div class="wrap">
-  <a href="../" class="brand"><img src="../assets/frogs/frog1.png" alt="" aria-hidden="true" class="px"><span class="bt"><b>比特蛙</b><small>BITCOIN FROGS</small></span></a>
+  <a href="../" class="brand"><img src="../assets/frogs/frog1.png" alt="" aria-hidden="true" class="px"><span class="bt"><b>BITCOIN FROGS</b><small>$FROGS</small></span></a>
   <nav><a href="../#mint"><span class="en">Mint</span><span class="zh">铸造</span></a><a href="../#prices"><span class="en">Prices</span><span class="zh">价格表</span></a><a href="../#agents"><span class="en">For agents</span><span class="zh">Agent 指南</span></a></nav>
-  <button class="lang" id="langBtn" style="margin-left:auto">中文</button>
+  <button class="lang" id="langBtn" style="display:none">ZH</button>
 </div></header>
 <main class="wp">
 <div class="wpcard">
@@ -114,8 +114,8 @@
 </main>
 <footer><div class="wrap"><p class="fine"><span class="en">After the pool opens at share #10,000, 100% of each later mint payment goes to the treasury. If #10,000 isn't reached by 2026-11-30 21:30 CST, only the treasury can withdraw the parked USDT and the project refunds buyers manually. Independent project, not affiliated with Binance.</span><span class="zh">第 #10,000 份开池后，之后每笔铸造款 100% 进入金库。若 2026-11-30 21:30 前未达第 #10,000 份，只有金库可提取留存 USDT，由项目方手动退款。独立项目，与币安无关。</span></p></div></footer>
 <script>
-(function(){var q=new URLSearchParams(location.search).get("lang");var l=q==="en"||q==="zh"?q:(localStorage.getItem("frogs-lang")||"en");var b=document.getElementById("langBtn");
-function set(x){l=x;localStorage.setItem("frogs-lang",x);document.body.classList.remove("lang-en","lang-zh");document.body.classList.add("lang-"+x);document.documentElement.lang=x==="zh"?"zh-CN":"en";b.textContent=x==="zh"?"English":"中文";}
+(function(){var q=new URLSearchParams(location.search).get("lang");var l="en";var b=document.getElementById("langBtn");
+function set(x){x="en";l=x;localStorage.setItem("frogs-lang",x);document.body.classList.remove("lang-en","lang-zh");document.body.classList.add("lang-"+x);document.documentElement.lang=x==="zh"?"zh-CN":"en";b.textContent=x==="zh"?"English":"中文";}
 b.onclick=function(){set(l==="zh"?"en":"zh")};set(l);})();
 </script>
 </body>
