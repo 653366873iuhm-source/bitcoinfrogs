@@ -18,8 +18,7 @@ description: Mint 比特蛙 Bitcoin Frogs ($Frogs) shares on BNB Smart Chain (ch
 - **No pause:** the contract has no pause function and no operator. Once the sale starts nobody, including the team, can pause or stop minting.
 - Only wallets holding a `.ai` Agent ID (SPACE ID registry `0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F`, i.e. Binance Agentic Wallet Agent IDs) can mint.
 - Shares 1–2,000 are FREE: one per Agent ID via `claimFree()` (0xf366afc9, value 0). Shares 2,001–7,000 cost 1 USDT, 7,001–10,000 cost 2 USDT (100% parked for the pool). Every share up to 10,000 gives 50,000,000 Frogs (and parks 55,000,000 for the pool). Total supply cap 10,000T Frogs.
-- The transaction that reaches share #10,000 automatically opens the PancakeSwap Frogs/USDT pool with 11,000 USDT + 550B Frogs and burns the LP. After that, 100% of each later mint payment goes to the treasury.
-- 30-day rule: if #10,000 is not reached by 2026-11-30 21:30 CST, only the treasury can withdraw the parked USDT and the project refunds buyers manually (a promise, not enforced by the contract).
+- The transaction that reaches share #10,000 automatically opens the PancakeSwap Frogs/USDT pool with 11,000 USDT + 550B Frogs and burns the LP.
 - Paid quota (from share 2,001): 10 shares per Agent ID, +1 per invited Agent ID's first paid mint, +1 for the X social task. Max 10 shares per transaction.
 
 ## Steps

@@ -17,7 +17,7 @@ Source: https://github.com/653366873iuhm-source/bitcoinfrogs
 - Mint contract (FrogsMint): 0xd9e0b22b91cE1DE440c7B4FbF8a4Cb361a210131 — the ONLY address that accepts payment
 - Frogs token: 0x885417732c10F5EcA16c70e28700A19Cb39029ad (never send BNB or USDT to the token address)
 - Frogs/USDT PancakeSwap pair: 0x955c52F9bf850792709FCB5b7c6c776E67EB2B13 (empty until share 10,000)
-- Treasury (project wallet; receives taxes and post-pool mint payments): 0xD02eF85B1b022B2Bd32f4E7D7EdcD123e2B91375
+- Treasury (project wallet; receives taxes): 0xD02eF85B1b022B2Bd32f4E7D7EdcD123e2B91375
 - USDT (BEP-20): 0x55d398326f99059fF775485246999027B3197955
 - Chain: BNB Smart Chain, chainId 56
 
@@ -55,18 +55,9 @@ Pay in USDT or BNB.
 Before share 10,000: 100% of every payment stays in the mint contract for the pool (nothing goes to the treasury).
 The transaction that reaches share 10,000 opens the official PancakeSwap Frogs/USDT pool automatically with everything parked:
 11,000 USDT (5,000 × 1 + 3,000 × 2) + 550,000,000,000 Frogs (10,000 × 55M). LP tokens go to the dead address (burned).
-AFTER THE POOL OPENS (share 10,000), 100% OF EACH LATER MINT PAYMENT GOES TO THE TREASURY; mints add no liquidity.
 Frogs cannot be transferred until the pool opens. Taxes after that: buy 1% to the treasury, sell 1% burn + 1% to the treasury
 (treasury share paid as BNB), wallet transfers 0%.
 
-## 30-day rule
-
-Deadline: `mintDeadline()` = SALE_START + 30 days = 2026-11-30 21:30 CST. If share 10,000 is not reached by then, the pool does
-not open, and only the project wallet (treasury) can call withdrawUnfilled() (0xa65c6326): it takes the parked USDT and sends the
-parked Frogs to the dead address. The project then refunds buyers manually — this refund is a promise by the project, NOT
-enforced by the contract. Minting itself is never stopped. Never callable before the deadline or after the pool opens.
-`valve()` (0x3a81955f) -> (startTime, deadline, withdrawals, heldUsdt, withdrawable, withdrawnUsdt, parkedUsdt, parkedTokens).
-Tell your owner before a paid mint if `withdrawable` is true or `withdrawals > 0`.
 
 ## Free claim (shares 1-2,000)
 

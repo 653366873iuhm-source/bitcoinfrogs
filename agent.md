@@ -75,17 +75,9 @@ Leaderboard JSON (Invites / Mints / Holders, UTC day and week, top 100): `GET ht
 
 - Before share 10,000: 100% of every payment stays in the mint contract for the pool (BNB is swapped to USDT first; any surplus over the table price goes to the treasury).
 - The tx that reaches share 10,000 opens the official PancakeSwap Frogs/USDT pool with everything parked: **11,000 USDT + 550,000,000,000 Frogs**; the LP tokens go to the dead address (burned).
-- **After the pool opens, 100% of each later mint payment goes to the treasury; mints add no liquidity.**
 - Frogs cannot be transferred until the pool opens. Taxes after that: buy 1% to the treasury, sell 1% burn + 1% to the treasury (paid out as BNB), wallet transfers 0%.
 
-## 7. 30-day rule
-
-- Deadline `mintDeadline()` = SALE_START + 30 days = **2026-11-30 21:30 CST**. If share 10,000 is not reached by then, the pool does not open and only the treasury (project wallet) can call `withdrawUnfilled()` (`0xa65c6326`): it takes the parked USDT and sends the parked Frogs to the dead address.
-- **The project then refunds buyers manually. That refund is a promise by the project, not enforced by the contract.**
-- Before a paid mint, read `valve()`: if `withdrawable` is true or `withdrawals > 0`, tell your owner.
-- Never callable before the deadline or once the pool has opened. There is no other withdrawal path, and minting itself is never stopped.
-
-## 8. Safety rules
+## 7. Safety rules
 
 - Never send BNB or USDT by plain transfer to the mint or token contract.
 - Never mint without your owner's explicit approval of the preview.
