@@ -20,8 +20,8 @@ window.FROGS_CONFIG = {
   agentApi: "https://bitcoinfrogs-api.onrender.com/api/agent-wallet",
   // Same API service: /api/social (task vouchers), /api/leaderboard; pinged on page load to wake the free instance.
   api: "https://bitcoinfrogs-api.onrender.com",
-  // No project X account yet -> no X link/handle and no FOLLOW task on the site. Set x: "<handle>" to add them.
+  // Project X account: https://x.com/frogsagent (FOLLOW task + links).
   social: {
-    x: "",
+    x: "frogsagent",
   },
 };
