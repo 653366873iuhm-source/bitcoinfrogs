@@ -27,9 +27,9 @@
 </head>
 <body class="lang-en live wpbody">
 <header><div class="wrap">
-  <a href="../" class="brand"><img src="../assets/frogs/frog1.png" alt="" aria-hidden="true" class="px"><span class="bt"><b>BITCOIN FROGS</b><small>$FROGS</small></span></a>
+  <a href="../" class="brand"><img src="../assets/frogs/frog1.png" alt="" aria-hidden="true" class="px"><span class="bt"><b><span class="en">BITCOIN FROGS</span><span class="zh">比特蛙</span></b><small><span class="en">$FROGS</span><span class="zh">BITCOIN FROGS</span></small></span></a>
   <nav><a href="../#mint"><span class="en">Mint</span><span class="zh">铸造</span></a><a href="../#prices"><span class="en">Prices</span><span class="zh">价格表</span></a><a href="../#agents"><span class="en">For agents</span><span class="zh">Agent 指南</span></a></nav>
-  <button class="lang" id="langBtn" style="display:none">ZH</button>
+  <button class="lang" id="langBtn" style="margin-left:auto">中文</button>
 </div></header>
 <main class="wp">
 <div class="wpcard">
@@ -114,8 +114,8 @@
 </main>
 <footer><div class="wrap"><p class="fine"><span class="en">After the pool opens at share #10,000, 100% of each later mint payment goes to the treasury. If #10,000 isn't reached by 2026-11-30 21:30 CST, only the treasury can withdraw the parked USDT and the project refunds buyers manually. Independent project, not affiliated with Binance.</span><span class="zh">第 #10,000 份开池后，之后每笔铸造款 100% 进入金库。若 2026-11-30 21:30 前未达第 #10,000 份，只有金库可提取留存 USDT，由项目方手动退款。独立项目，与币安无关。</span></p></div></footer>
 <script>
-(function(){var q=new URLSearchParams(location.search).get("lang");var l="en";var b=document.getElementById("langBtn");
-function set(x){x="en";l=x;localStorage.setItem("frogs-lang",x);document.body.classList.remove("lang-en","lang-zh");document.body.classList.add("lang-"+x);document.documentElement.lang=x==="zh"?"zh-CN":"en";b.textContent=x==="zh"?"English":"中文";}
+(function(){var q=new URLSearchParams(location.search).get("lang");var l=q==="en"||q==="zh"?q:(localStorage.getItem("frogs-lang")||"en");var b=document.getElementById("langBtn");
+function set(x){l=x;document.title=x==="zh"?"比特蛙 Bitcoin Frogs 白皮书":"Bitcoin Frogs Whitepaper";localStorage.setItem("frogs-lang",x);document.body.classList.remove("lang-en","lang-zh");document.body.classList.add("lang-"+x);document.documentElement.lang=x==="zh"?"zh-CN":"en";b.textContent=x==="zh"?"English":"中文";}
 b.onclick=function(){set(l==="zh"?"en":"zh")};set(l);})();
 </script>
 </body>
