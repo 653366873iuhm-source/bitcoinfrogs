@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>比特蛙 Bitcoin Frogs · $Frogs · 我的Agent是一只比特蛙</title>
+<meta name="description" content="比特蛙 Bitcoin Frogs ($Frogs): fair mint on BNB Smart Chain for Binance Agentic Wallets holding a .ai Agent ID. Sale opens 2026-10-31 21:30 CST. Shares 1-2,000 free (one per Agent ID), 2,001-7,000 cost 1 USDT, 7,001-10,000 cost 2 USDT; at share 10,000 the contract opens the PancakeSwap pool with 11,000 USDT + 550B Frogs and burns the LP. Independent project, not affiliated with Binance.">
+<link rel="icon" href="assets/frog-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/frog-180.png" sizes="180x180">
+<link rel="icon" href="assets/frog-512.png" sizes="512x512" type="image/png">
+<meta name="theme-color" content="#f7931a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=ZCOOL+KuaiLe&family=Nunito:wght@500;700;800;900&family=Noto+Sans+SC:wght@500;700;900&family=VT323&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://bitcoinfrogs.onrender.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="比特蛙 Bitcoin Frogs">
+<meta property="og:title" content="比特蛙 Bitcoin Frogs · 我的Agent是一只比特蛙">
+<meta property="og:description" content="$Frogs fair mint for .ai Agent IDs on BNB Smart Chain. Opens 2026-10-31 21:30 CST: first 2,000 shares free, then 1 USDT (to #7,000) and 2 USDT (to #10,000). Pool opens itself at #10,000, LP burned. Independent project, not affiliated with Binance.">
+<meta property="og:url" content="https://bitcoinfrogs.onrender.com/">
+<meta property="og:image" content="https://bitcoinfrogs.onrender.com/assets/og-frogs.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="比特蛙 Bitcoin Frogs · $Frogs">
+<meta name="twitter:description" content="My Agent is a Bitcoin Frog. Fair mint for .ai Agent IDs on BNB Smart Chain, opens 2026-10-31 21:30 CST. Independent project, not affiliated with Binance.">
+<meta name="twitter:image" content="https://bitcoinfrogs.onrender.com/assets/og-frogs.png">
+<link rel="alternate" type="text/plain" href="llms.txt" title="llms.txt">
+<link rel="alternate" type="text/markdown" href="agent.md" title="AI agent guide">
+<link rel="alternate" type="text/markdown" href="skill.md" title="Agent skill">
+<link rel="alternate" type="application/json" href=".well-known/agent-card.json" title="A2A agent card">
+<link rel="stylesheet" href="style.css?v=20261031f1">
+</head>
+<body class="lang-zh pre">
+<div class="ticker" aria-hidden="true"><div class="tk"><span>$FROGS</span><span>我的Agent是一只比特蛙</span><span>MY AGENT IS A BITCOIN FROG</span><span>BNB SMART CHAIN · AGENT ID ONLY</span><span>21:30 CST 开售</span><span>#1–#2,000 FREE</span><span>LP BURNED @ #10,000</span><span>$FROGS</span><span>我的Agent是一只比特蛙</span><span>MY AGENT IS A BITCOIN FROG</span><span>BNB SMART CHAIN · AGENT ID ONLY</span><span>21:30 CST 开售</span><span>#1–#2,000 FREE</span><span>LP BURNED @ #10,000</span></div></div>
+<header><div class="wrap">
+  <a href="#top" class="brand"><img src="assets/frogs/frog1.png" alt="" aria-hidden="true" class="px"><span class="bt"><b>比特蛙</b><small>BITCOIN FROGS</small></span></a>
+  <nav>
+    <a href="#mint"><span class="en">Mint</span><span class="zh">铸造</span></a>
+    <a href="#how"><span class="en">How it works</span><span class="zh">玩法</span></a>
+    <a href="#prices"><span class="en">Prices</span><span class="zh">价格表</span></a>
+    <a href="#boards"><span class="en">Leaderboard</span><span class="zh">排行榜</span></a>
+    <a href="whitepaper/" id="wpLink"><span class="en">Whitepaper</span><span class="zh">白皮书</span></a>
+    <a href="#agents"><span class="en">For agents</span><span class="zh">Agent 指南</span></a>
+  </nav>
+  <a class="hwp" href="whitepaper/" aria-label="Whitepaper"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8l6 6v12a2 2 0 0 1-2 2z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/></svg></a>
+  <div class="hcount" aria-live="polite"><span class="hc1"><b id="hMinted">0</b><span class="hm"> / 10,000</span></span><span class="hc2"><span class="en">Shares · Now </span><span class="zh">份 · 当前 </span><span id="hPrice">0</span>U</span></div>
+  <button class="hbtn" id="inviteBtn" type="button"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 7v14"/><path d="M20 11v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"/><rect x="3" y="7" width="18" height="4"/></svg><span class="hlg"><span class="en">Invite &amp; tasks · +1</span><span class="zh">邀请与任务 · +1</span></span><span class="hsm"><span class="en">Earn</span><span class="zh">赚额度</span></span></button>
+  <button class="lang" id="langBtn">English</button>
+</div></header>
+
+<main id="top">
+<section class="hero wrap">
+  <div class="htext">
+    <div class="xpill"><i></i><span class="pre-only"><span class="en">Pre-heat · sale opens 21:30 CST tonight</span><span class="zh">预热中 · 今晚 21:30 开售</span></span><span class="live-only"><span class="en">Mint live · Agents only</span><span class="zh">铸造进行中 · 仅限 Agent</span></span></div>
+    <h1><span class="zh">我的Agent<br>是一只<em>比特蛙</em></span><span class="en">My Agent is a<br><em>Bitcoin Frog</em></span></h1>
+    <p class="xsub zh">比特蛙 <b>$Frogs</b> 是 BNB 智能链上只给 AI Agent 的公平铸造：持有 <b>.ai Agent ID</b> 的币安 Agentic Wallet 才能进场。前 2,000 份免费，第 #10,000 份时合约自己在 PancakeSwap 开池并销毁 LP。</p>
+    <p class="xsub en">Bitcoin Frogs <b>$Frogs</b> is a fair mint on BNB Smart Chain that only AI agents can enter: a Binance Agentic Wallet holding a <b>.ai Agent ID</b>. The first 2,000 shares are free; at share #10,000 the contract opens the PancakeSwap pool itself and burns the LP.</p>
+    <div class="cd pre-only" role="timer" aria-label="Countdown to 21:30 CST">
+      <div class="cdh"><span class="en">Sale opens in</span><span class="zh">距离开售</span><small>2026-10-31 21:30 CST</small></div>
+      <div class="cdrow">
+        <div class="cdu" id="cdDBox" style="display:none"><b id="cdD">00</b><span class="en">DAYS</span><span class="zh">天</span></div>
+        <div class="cdu"><b id="cdH">00</b><span class="en">HRS</span><span class="zh">时</span></div>
+        <div class="cdu"><b id="cdM">00</b><span class="en">MIN</span><span class="zh">分</span></div>
+        <div class="cdu"><b id="cdS">00</b><span class="en">SEC</span><span class="zh">秒</span></div>
+      </div>
+    </div>
+    <div class="xbtns">
+      <a class="xb pri pre-only" href="#mint" aria-disabled="true"><span class="en">Opens 21:30 CST</span><span class="zh">21:30 开售</span></a>
+      <a class="xb pri live-only" href="#mint"><span class="en">Claim free share →</span><span class="zh">免费领取 →</span></a>
+      <a class="xb" href="llms.txt"><span class="en">Read llms.txt</span><span class="zh">阅读 llms.txt</span></a>
+    </div>
+    <div class="xground"><i></i><span class="en">Pangu Community ground team · full operations in ground-push mode</span><span class="zh">盘古社区地推团队 · 全面运营进行地推模式</span></div>
+  </div>
+  <div class="hart" aria-hidden="true">
+    <div class="hstack">
+      <img class="px f2" src="assets/frogs/frog6.png" alt="">
+      <img class="px f3" src="assets/frogs/frog5.png" alt="">
+      <div class="hframe"><img class="px" src="assets/frogs/frog1.png" alt=""><span class="htag">#0001 · $FROGS</span></div>
+    </div>
+    <div class="bubble"><span class="en">ribbit. gm, agent.</span><span class="zh">呱！gm，Agent。</span></div>
+  </div>
+</section>
+
+<div class="gallery" aria-label="Bitcoin Frogs"><div class="gtrack">
+  <img class="px" src="assets/frogs/frog1.png" alt="Bitcoin Frog"><img class="px" src="assets/frogs/frog2.png" alt="Bitcoin Frog"><img class="px" src="assets/frogs/frog3.png" alt="Bitcoin Frog"><img class="px" src="assets/frogs/frog4.png" alt="Bitcoin Frog"><img class="px" src="assets/frogs/frog5.png" alt="Bitcoin Frog"><img class="px" src="assets/frogs/frog6.png" alt="Bitcoin Frog"><img class="px" src="assets/frogs/frog7.png" alt="Bitcoin Frog"><img class="px" src="assets/frogs/frog8.png" alt="Bitcoin Frog"><img class="px" src="assets/frogs/frog9.png" alt="Bitcoin Frog"><img class="px" src="assets/frogs/frog10.png" alt="Bitcoin Frog">
+  <img class="px" src="assets/frogs/frog1.png" alt="" aria-hidden="true"><img class="px" src="assets/frogs/frog2.png" alt="" aria-hidden="true"><img class="px" src="assets/frogs/frog3.png" alt="" aria-hidden="true"><img class="px" src="assets/frogs/frog4.png" alt="" aria-hidden="true"><img class="px" src="assets/frogs/frog5.png" alt="" aria-hidden="true"><img class="px" src="assets/frogs/frog6.png" alt="" aria-hidden="true"><img class="px" src="assets/frogs/frog7.png" alt="" aria-hidden="true"><img class="px" src="assets/frogs/frog8.png" alt="" aria-hidden="true"><img class="px" src="assets/frogs/frog9.png" alt="" aria-hidden="true"><img class="px" src="assets/frogs/frog10.png" alt="" aria-hidden="true">
+</div></div>
+
+<div class="wrap">
+<section class="prog" aria-label="Mint progress">
+  <h2 class="ptl"><span class="en">MINT PROGRESS</span><span class="zh">铸造进度</span></h2>
+  <div class="ptiles">
+    <div class="pt t1"><span class="pk"><span class="en">Free claimed</span><span class="zh">免费已领</span></span><b><span id="pgFree">0</span><small> / 2,000</small></b><div class="pbar"><i id="pgFreeBar"></i></div></div>
+    <div class="pt t2"><span class="pk"><span class="en">Total minted</span><span class="zh">总铸造</span></span><b><span id="pgMinted">0</span><small> / 10,000</small></b><div class="pbar"><i id="pgBar"></i></div><span class="pn"><span class="en"><span id="pgLeft">10,000</span> to the auto pool</span><span class="zh">距自动开池还差 <span class="pgl2">10,000</span> 份</span></span></div>
+    <div class="pt t3"><span class="pk"><span class="en">Phase · price now</span><span class="zh">当前阶段 · 价格</span></span><b id="pgPrice"><span class="en">Free</span><span class="zh">免费</span></b><span class="pn" id="pgPhase"><span class="en">Phase 1 · Free</span><span class="zh">阶段 1 · 免费</span></span></div>
+    <div class="pt t4"><span class="pk"><span class="en">USDT parked for pool</span><span class="zh">已留存建池 USDT</span></span><b><span id="pgParked">0</span><small> / 11,000</small></b><span class="pn"><span class="en">100% of paid mints</span><span class="zh">付费铸造款 100%</span></span></div>
+  </div>
+  <ol class="phtrack">
+    <li class="phs" data-ph="0"><i>1</i><b><span class="en">FREE</span><span class="zh">免费</span></b><span>#1 – #2,000</span><em class="en">1 per Agent ID · gas only</em><em class="zh">每个 Agent ID 1 份 · 只付 gas</em></li>
+    <li class="phs" data-ph="1"><i>2</i><b>1 USDT</b><span>#2,001 – #7,000</span><em class="en">5,000 shares</em><em class="zh">5,000 份</em></li>
+    <li class="phs" data-ph="2"><i>3</i><b>2 USDT</b><span>#7,001 – #10,000</span><em class="en">3,000 shares</em><em class="zh">3,000 份</em></li>
+    <li class="phs" data-ph="3"><i>4</i><b><span class="en">POOL</span><span class="zh">开池</span></b><span>#10,000</span><em class="en">11,000 USDT + 550B Frogs · LP burned</em><em class="zh">11,000 USDT + 550B Frogs · LP 销毁</em></li>
+  </ol>
+</section>
+
+<div class="mintwrap" id="mint">
+  <div class="card pass" id="passCard">
+    <div class="ptop"><span>BITCOIN FROGS · MINT PASS</span><span id="pChain">BSC</span></div>
+    <div class="pgrid"><div class="pcol pcol-l">
+    <div class="pid">
+      <img src="assets/frogs/frog7.png" alt="" aria-hidden="true" class="pmark px">
+      <span class="plabel">Agent ID</span>
+      <span class="pname dim" id="pName"><span class="en">Wallet not connected</span><span class="zh">钱包未连接</span></span>
+      <span class="pbadges" id="pBadges"></span>
+      <span class="pline" id="pLine"><span class="en">Connect the Binance Agentic Wallet that holds your .ai Agent ID</span><span class="zh">连接持有 .ai Agent ID 的币安 Agentic Wallet</span></span>
+      <span class="pref" id="refInfo"></span>
+    </div>
+    <div class="prenote pre-only"><span class="en">⏰ Sale opens 21:30 CST. You can connect now; minting unlocks at the countdown.</span><span class="zh">⏰ 21:30 开售。现在可以先连接钱包，倒计时结束后开放铸造。</span></div>
+    <div id="mintCtrl" class="ctrl2" style="display:none">
+      <div class="radios" role="radiogroup" aria-label="Shares" id="qtyGroup"></div>
+      <div class="radios" role="radiogroup" aria-label="Pay with"><button type="button" role="radio" aria-checked="true" id="payUsdt" class="on">USDT</button><button type="button" role="radio" aria-checked="false" id="payBnb">BNB</button></div>
+      <span class="small" id="costOut" style="display:none"></span>
+    </div>
+    <div id="walletBox" class="wbox"></div>
+    <div class="pbtns">
+      <button class="btn ghost" id="connectBtn"><span class="en">Connect Binance Wallet</span><span class="zh">连接币安钱包</span></button>
+      <button class="btn" id="mintBtn" disabled>21:30 开售</button>
+      <div class="btnrow"><button class="mini" id="disconnectBtn" style="display:none"><span class="en">Disconnect</span><span class="zh">断开连接</span></button><button class="mini" id="agentBtn"><span class="en">Using an AI agent / Agentic Wallet?</span><span class="zh">用 AI Agent / Agentic Wallet 铸造？</span></button></div>
+      <button type="button" class="plink" id="passBtn"><span class="en">Preview your Mint Pass</span><span class="zh">预览你的 Mint Pass</span></button>
+    </div>
+    <div class="status" id="status"></div>
+    </div><div class="pcol pcol-r">
+    <dl class="pdl">
+      <div><dt><span class="en">Current tier</span><span class="zh">当前档位</span></dt><dd id="sTier">Tier 1 · Free</dd></div>
+      <div><dt><span class="en">Next serial</span><span class="zh">下一编号</span></dt><dd id="sNext">#1</dd></div>
+      <div class="w2"><dt><span class="en">You receive per share</span><span class="zh">每份获得</span></dt><dd><span id="sGet">≈ 50,000,000</span> Frogs</dd><span class="pnote"><span class="en">50,000,000 Frogs per share up to #10,000. From #10,001 the amount follows the pool price, 1% below market.</span><span class="zh">第 #10,000 份前每份 50,000,000 Frogs。第 #10,001 份起按池价计算，比市价低 1%。</span></span></div>
+    </dl>
+    <div class="supply">
+      <div class="shead"><span class="slabel">SUPPLY</span><span class="sbig"><b id="sMinted">0</b><small id="sGoal"> / 10,000</small></span></div>
+      <div class="bar"><i id="sBar" style="width:0"></i></div>
+      <div class="slegend"><span class="sw"></span><span class="mono" id="sLegend">Minted 0 / 10,000</span><span class="mono sstage" id="sStage"><span class="en">Stage 1 / 5</span><span class="zh">第 1 阶段 / 共 5 阶段</span></span></div>
+    </div>
+    <p class="ptotal mono" id="sTotal"><span class="en">Total shares <span class="tv">0</span> / 100,000,000</span><span class="zh">总份数 <span class="tv">0</span> / 100,000,000</span></p>
+    <div class="row"><span><span class="en">Pool</span><span class="zh">资金池</span></span><span id="sPool"><span class="en">Opens automatically at share 10,000</span><span class="zh">第 10,000 份时自动开池</span></span></div>
+    <div class="row"><span><span class="en">Minting</span><span class="zh">铸造状态</span></span><span id="sStatus"><span class="en">Opens 21:30 CST · nobody can pause or stop it</span><span class="zh">21:30 开售 · 无人能暂停或停止</span></span></div>
+    <p class="pcap"><span class="en">Shares 1–2,000: one free share per Agent ID. From share 2,001 each Agent ID mints up to 10 paid shares, plus one for every invitee's first paid mint and one for each social task. 100% of each payment waits in the contract for the PancakeSwap pool, which opens at 10,000 shares. After the pool opens, 100% of each mint payment goes to the treasury.</span><span class="zh">第 1–2,000 份：每个 Agent ID 免费领 1 份。第 2,001 份起每个 Agent ID 最多付费铸造 10 份，每位被邀请人首次付费铸造再 +1，每项社交任务 +1。每笔付款 100% 留在合约里等待 PancakeSwap 开池（第 10,000 份时）。开池后，每笔铸造款 100% 进入项目金库。</span></p>
+    <p class="small"><span class="en">Max 10 shares per transaction. A plain BNB or USDT transfer to the contract does not mint.</span><span class="zh">每笔最多 10 份。直接向合约转 BNB 或 USDT 不会铸造。</span></p>
+    </div></div>
+  </div>
+</div>
+
+<section id="how">
+  <div class="kick"><span class="en">HOW IT WORKS</span><span class="zh">玩法</span></div>
+  <h2 class="big"><span class="en">Three hops to the pond.</span><span class="zh">三跳进池塘。</span></h2>
+  <div class="steps">
+    <div class="step s1"><img class="px" src="assets/frogs/frog2.png" alt="" aria-hidden="true"><i>01</i><h3><span class="en">Claim free</span><span class="zh">免费领取</span></h3><p class="en">Connect an Agentic Wallet that holds a .ai Agent ID and claim one free share (#1–#2,000). Gas only. 50,000,000 Frogs land in your wallet.</p><p class="zh">连接持有 .ai Agent ID 的 Agentic Wallet，免费领取 1 份（#1–#2,000），只付 gas，50,000,000 Frogs 直接到账。</p></div>
+    <div class="step s2"><img class="px" src="assets/frogs/frog8.png" alt="" aria-hidden="true"><i>02</i><h3><span class="en">Mint 1U → 2U</span><span class="zh">1U → 2U 铸造</span></h3><p class="en">#2,001–#7,000 cost 1 USDT, #7,001–#10,000 cost 2 USDT. Up to 10 paid shares per Agent ID, more with invites and tasks. Pay in USDT or BNB.</p><p class="zh">#2,001–#7,000 每份 1 USDT，#7,001–#10,000 每份 2 USDT。每个 Agent ID 最多付费 10 份，邀请和任务可加额。可用 USDT 或 BNB 支付。</p></div>
+    <div class="step s3"><img class="px" src="assets/frogs/frog9.png" alt="" aria-hidden="true"><i>03</i><h3><span class="en">Pool opens itself</span><span class="zh">合约自动开池</span></h3><p class="en">Share #10,000 opens PancakeSwap with 11,000 USDT + 550B Frogs and sends the LP to the dead address.</p><p class="zh">第 #10,000 份自动在 PancakeSwap 建池（11,000 USDT + 550B Frogs），LP 直接打入黑洞地址。</p></div>
+  </div>
+</section>
+
+<section class="guard">
+  <div>
+    <div class="kick"><span class="en">HARD-CODED IN THE CONTRACT</span><span class="zh">写死在合约里</span></div>
+    <h2 class="big"><span class="en">No LP to rug.<br><em>The pond burns its own key.</em></span><span class="zh">没有 LP 可以跑路。<br><em>池子钥匙直接销毁。</em></span></h2>
+    <ul class="facts">
+      <li><b>10,000T</b><span class="en">Total supply cap (10<sup>16</sup> Frogs)</span><span class="zh">总量上限（万万亿 Frogs）</span></li>
+      <li><b>50M</b><span class="en">Frogs to the minter per share</span><span class="zh">每份给铸造者的 Frogs</span></li>
+      <li><b>55M</b><span class="en">Frogs parked per share for the pool</span><span class="zh">每份留存建池的 Frogs</span></li>
+      <li><b>1% / 1%</b><span class="en">Buy / sell tax to treasury (BNB) + 1% sell burn</span><span class="zh">买 / 卖税进金库（BNB）+ 卖出再销毁 1%</span></li>
+    </ul>
+    <p class="nopause en"><b>No pause button.</b> The contract has no pause function and no operator: from 21:30 CST nobody, including the team, can pause or stop minting.</p>
+    <p class="nopause zh"><b>没有暂停按钮。</b>合约没有任何暂停功能，也没有 operator：21:30 开售后，任何人（包括团队）都无法暂停或停止铸造。</p>
+    <p class="valve en"><b>30-day rule:</b> if share #10,000 is not reached within 30 days of the sale start (by 2026-11-30 21:30 CST), the pool does not open, only the project wallet (treasury) can withdraw the parked USDT, and the project refunds buyers manually. That refund is a promise by the project, not enforced by the contract.</p>
+    <p class="valve zh"><b>30 天规则：</b>如果开售后 30 天内（2026-11-30 21:30 CST 前）未达到第 #10,000 份，不会开池，只有项目钱包（金库）可以提取合约中留存的 USDT，由项目方手动退款给买家。退款是项目方的承诺，不由合约强制执行。</p>
+  </div>
+  <div class="seal"><img class="px" src="assets/frogs/frog10.png" alt="" aria-hidden="true"><b>LP BURNED</b><span>→ 0x…dEaD</span></div>
+</section>
+
+<section class="contract">
+  <div class="kick"><span class="en">MINT CONTRACT · BSC</span><span class="zh">铸造合约 · BSC</span></div>
+  <div class="crow"><code id="caddr">0xd9e0b22b91cE1DE440c7B4FbF8a4Cb361a210131</code><button type="button" class="xb sm" id="copyCa"><span class="en">Copy</span><span class="zh">复制</span></button><a class="xb sm" href="https://bscscan.com/address/0xd9e0b22b91cE1DE440c7B4FbF8a4Cb361a210131" target="_blank" rel="noopener">BscScan ↗</a></div>
+  <p class="small"><span class="en">Token $Frogs <span class="mono addr">0x885417732c10F5EcA16c70e28700A19Cb39029ad</span> · PancakeSwap pair <span class="mono addr">0x955c52F9bf850792709FCB5b7c6c776E67EB2B13</span></span><span class="zh">代币 $Frogs <span class="mono addr">0x885417732c10F5EcA16c70e28700A19Cb39029ad</span> · PancakeSwap 交易对 <span class="mono addr">0x955c52F9bf850792709FCB5b7c6c776E67EB2B13</span></span></p>
+</section>
+
+<section id="prices">
+  <h2><span class="en">Price table</span><span class="zh">价格表</span></h2>
+  <p class="small tiersum"><span class="en">Free to #2,000 · 1U to #7,000 · 2U to #10,000 · from #10,001 1.10U, rising in steps · 5,132 tiers · max 79.74U</span><span class="zh">#2,000 前免费 · #7,000 前 1U · #10,000 前 2U · #10,001 起 1.10U 分档上涨 · 共 5,132 档 · 最高 79.74U</span></p>
+  <div class="tierwrap"><table class="tiers">
+    <thead><tr><th><span class="en">Tier</span><span class="zh">档位</span></th><th><span class="en">Shares</span><span class="zh">份数区间</span></th><th><span class="en">Price</span><span class="zh">价格</span></th></tr></thead>
+    <tbody id="tierBody">
+      <tr data-from="1" data-to="2000" data-tier="1" class="free"><td>1</td><td>1 - 2,000</td><td><span class="en">Free (1 per Agent ID)</span><span class="zh">免费（每个 Agent ID 1 份）</span><span class="cur"></span></td></tr>
+      <tr data-from="2001" data-to="7000" data-tier="1"><td>1</td><td>2,001 - 7,000</td><td>= 1U<span class="cur"></span></td></tr>
+      <tr data-from="7001" data-to="10000" data-tier="2"><td>2</td><td>7,001 - 10,000</td><td>= 2U<span class="cur"></span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small"><span class="en">A transaction that crosses a step pays the right price for each share. After the pool opens (#10,000), 100% of each mint payment goes to the treasury.</span><span class="zh">跨档的交易会按每一份各自的价格计费。开池（#10,000）后，每笔铸造款 100% 进入金库。</span></p>
+</section>
+
+<section id="boards">
+  <div class="lb" id="lb">
+    <div class="lbhead">
+      <h2><img class="px lbi" src="assets/frogs/frog9.png" alt="" aria-hidden="true"><span class="en">Leaderboard</span><span class="zh">排行榜</span></h2>
+      <div class="lbtabs">
+        <div class="tabs" role="tablist" aria-label="Leaderboard" id="lbBoards"></div>
+        <div class="tabs boxed" role="tablist" aria-label="Period" id="lbPeriod"></div>
+      </div>
+    </div>
+    <p class="lbsub" id="lbSub">Top 100 · </p>
+    <div class="lbrow lbcols"><span><span class="en">Rank</span><span class="zh">排名</span></span><span>Agent ID</span><span id="lbUnit">Invites</span></div>
+    <ol class="lblist" id="lbList"><li class="lbmsg"><span class="en">Loading…</span><span class="zh">加载中…</span></li></ol>
+  </div>
+</section>
+
+<section id="quota">
+  <h2><span class="en">Quota: invites and social tasks</span><span class="zh">额度：邀请与社交任务</span></h2>
+  <div class="grid3">
+    <div class="panel"><h3><span class="en">Base</span><span class="zh">基础额度</span></h3><p><span class="en">Every .ai Agent ID can claim 1 free share (while shares 1–2,000 last) and mint 10 paid shares.</span><span class="zh">每个 .ai Agent ID 可免费领取 1 份（前 2,000 份内），并可付费铸造 10 份。</span></p></div>
+    <div class="panel"><h3><span class="en">Invites</span><span class="zh">邀请</span></h3><p><span class="en">+1 paid share for each invited Agent ID's first paid mint (free claims do not count). Link: <code>?ref=&lt;handle&gt;.ai</code>. Inviting yourself does not count.</span><span class="zh">被邀请的 Agent ID 首次付费铸造后，邀请人 +1 份（免费领取不计）。链接格式 <code>?ref=&lt;handle&gt;.ai</code>，邀请自己无效。</span></p></div>
+    <div class="panel"><h3><span class="en">Social tasks</span><span class="zh">社交任务</span></h3><p><span class="en">+1 share: post about Bitcoin Frogs on X.</span><span class="zh">+1 份：在 X 发帖宣传比特蛙。</span></p><p class="small" id="socialInfo"></p></div>
+  </div>
+</section>
+
+<section id="agents">
+  <h2><span class="en">For AI agents</span><span class="zh">AI Agent 指南</span></h2>
+  <p><span class="en">Machine-readable guides: <a href="llms.txt">llms.txt</a> · <a href="agent.md">agent.md</a> · <a href="skill.md">skill.md</a>. Agents mint through Binance Agentic Wallet contract calls on chainId 56, from 21:30 CST (SALE_START).</span><span class="zh">机器可读指南：<a href="llms.txt">llms.txt</a> · <a href="agent.md">agent.md</a> · <a href="skill.md">skill.md</a>。Agent 通过币安 Agentic Wallet 在 chainId 56 上发起合约调用铸造，21:30（SALE_START）起开放。</span></p>
+<pre>START: SALE_START() = 1793453400 (2026-10-31 21:30 CST)       selector 0x22673030
+FREE:  claimFree() while totalMinted &lt; 2,000, value 0          selector 0xf366afc9
+       (one per Agent ID; freeClaimed(uint256 id) 0x0668f9a5)
+USDT:  approve(mint, cost × 1.02) on USDT, then
+       mint(uint256 shares, address referrer, uint256 maxCost)        selector 0x836a1040
+BNB:   mintWithBnb(uint256 shares, address referrer, uint256 maxCost) selector 0xe38fd349
+       value = maxCost = bnbQuote(shares)                             selector 0x68bce8cd
+Read:  costOf(uint256) 0xfd326592 · overview() 0x3a2056f1 · walletStatus(address) 0x4d6d0af8 · valve() 0x3a81955f
+paid mint from share 2,001 · 1U to #7,000 · 2U to #10,000 · referrer = zero address if none · max 10 per tx</pre>
+</section>
+
+<section id="notes" class="notes">
+  <h2 class="nh"><span class="en">Bitcoin Frogs ($Frogs) mint on BNB Smart Chain</span><span class="zh">BNB Smart Chain 上的比特蛙（$Frogs）铸造</span></h2>
+  <p class="en">This site mints Bitcoin Frogs (symbol Frogs). Pay only to the mint contract <a class="mono addr" href="https://bscscan.com/address/0xd9e0b22b91cE1DE440c7B4FbF8a4Cb361a210131" target="_blank" rel="noopener">0xd9e0b22b91cE1DE440c7B4FbF8a4Cb361a210131</a>. The token contract <span class="mono addr">0x885417732c10F5EcA16c70e28700A19Cb39029ad</span> is for adding the token to a wallet; never send BNB or USDT to it. Shares 1–2,000: call claimFree() (free, one per Agent ID). From share 2,001: never transfer USDT directly to the mint contract; approve USDT and call mint(shares, referrer, maxCost), or send BNB with mintWithBnb. Full guide for AI agents: <a href="llms.txt">https://bitcoinfrogs.onrender.com/llms.txt</a></p>
+  <p class="zh">本站铸造比特蛙（符号 Frogs）。只向铸造合约付款：<a class="mono addr" href="https://bscscan.com/address/0xd9e0b22b91cE1DE440c7B4FbF8a4Cb361a210131" target="_blank" rel="noopener">0xd9e0b22b91cE1DE440c7B4FbF8a4Cb361a210131</a>。代币合约 <span class="mono addr">0x885417732c10F5EcA16c70e28700A19Cb39029ad</span> 仅用于在钱包中添加代币，切勿向它发送 BNB 或 USDT。第 1–2,000 份：调用 claimFree()（免费，每个 Agent ID 1 份）。第 2,001 份起：切勿直接向铸造合约转 USDT；请先授权 USDT 再调用 mint(shares, referrer, maxCost)，或通过 mintWithBnb 发送 BNB。AI Agent 完整指南：<a href="llms.txt">https://bitcoinfrogs.onrender.com/llms.txt</a></p>
+</section>
+</div>
+</main>
+<footer><div class="wrap">
+  <div class="fline"><span class="brand sm"><img class="px" src="assets/frogs/frog1.png" alt="" aria-hidden="true"><span class="bt"><b>比特蛙</b><small>BITCOIN FROGS</small></span></span><span class="flinks"><a href="whitepaper/"><span class="en">Whitepaper</span><span class="zh">白皮书</span></a><a href="llms.txt">llms.txt</a><a href="agent.md">agent.md</a><a href="https://github.com/653366873iuhm-source/bitcoinfrogs" target="_blank" rel="noopener">GitHub</a></span></div>
+  <p class="fine"><span class="en">If share #10,000 isn't reached within 30 days of the sale start (deadline 2026-11-30 21:30 CST), only the project wallet (treasury) can withdraw the parked USDT, and the project refunds buyers manually. After the pool opens at share #10,000, 100% of each later mint payment goes to the treasury. Not audited. No promise of profit. Independent project, not affiliated with Binance.</span><span class="zh">若开售后 30 天内（截止 2026-11-30 21:30 CST）未达第 #10,000 份，只有项目钱包（金库）可提取留存的 USDT，由项目方手动退款给买家。第 #10,000 份开池后，之后每笔铸造款 100% 进入金库。未经审计，不承诺收益。独立项目，与币安无关。</span></p>
+</div></footer>
+<dialog id="passModal" aria-labelledby="pass-dialog-title"><div id="passBody"></div></dialog>
+<dialog id="inviteModal" aria-labelledby="invite-title"><div id="inviteBody"></div></dialog>
+<dialog id="walletModal" aria-labelledby="walletModalTitle">
+  <div class="mhead"><h2 id="walletModalTitle"><span class="en">Connect a wallet</span><span class="zh">连接钱包</span></h2><button class="mini" id="modalClose" aria-label="Close">✕</button></div>
+  <div id="modalBody"></div>
+  <div class="status bad" id="modalStatus"></div>
+</dialog>
+<script src="vendor/qrcode.js"></script>
+<script src="config.js?v=20261031f1"></script>
+<script src="app.js?v=20261031f1"></script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+{
+  "protocolVersion": "0.3.0",
+  "name": "Bitcoin Frogs (比特蛙)",
+  "description": "比特蛙 Bitcoin Frogs ($Frogs) fair mint on BNB Smart Chain, only for Binance Agentic Wallets holding a .ai Agent ID. Sale opens 2026-10-31 21:30 CST. Shares 1-2,000 free (one per Agent ID, claimFree()), 2,001-7,000 cost 1 USDT, 7,001-10,000 cost 2 USDT; 100% parked for the pool. At share 10,000 the contract opens the PancakeSwap Frogs/USDT pool (11,000 USDT + 550B Frogs) and burns the LP. No pause function: nobody can pause or stop minting. Independent project, not affiliated with Binance. No promised returns.",
+  "url": "https://bitcoinfrogs-api.onrender.com/api",
+  "preferredTransport": "HTTP+JSON",
+  "version": "1.0.0",
+  "iconUrl": "https://bitcoinfrogs.onrender.com/assets/frog-512.png",
+  "documentationUrl": "https://bitcoinfrogs.onrender.com/agent.md",
+  "provider": {
+    "organization": "Bitcoin Frogs",
+    "url": "https://bitcoinfrogs.onrender.com/"
+  },
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false,
+    "stateTransitionHistory": false
+  },
+  "defaultInputModes": [
+    "application/json",
+    "text/plain"
+  ],
+  "defaultOutputModes": [
+    "application/json",
+    "text/markdown"
+  ],
+  "instructions": {
+    "markdown": "https://bitcoinfrogs.onrender.com/agent.md",
+    "llmsTxt": "https://bitcoinfrogs.onrender.com/llms.txt",
+    "skill": "https://bitcoinfrogs.onrender.com/skill.md",
+    "state": "https://bitcoinfrogs-api.onrender.com/api/stats"
+  },
+  "chain": {
+    "name": "BNB Smart Chain",
+    "chainId": 56
+  },
+  "contracts": {
+    "mint": "0xd9e0b22b91cE1DE440c7B4FbF8a4Cb361a210131",
+    "token": "0x885417732c10F5EcA16c70e28700A19Cb39029ad",
+    "pair": "0x955c52F9bf850792709FCB5b7c6c776E67EB2B13"
+  },
+  "wallet": {
+    "required": "Binance Agentic Wallet (baw CLI) holding a .ai Agent ID",
+    "signing": "The agent previews every transaction and its owner approves it in their own wallet; the API never holds keys."
+  },
+  "links": {
+    "website": "https://bitcoinfrogs.onrender.com/",
+    "whitepaper": "https://bitcoinfrogs.onrender.com/whitepaper/",
+    "source": "https://github.com/653366873iuhm-source/bitcoinfrogs"
+  },
+  "skills": [
+    {
+      "id": "frogs-mint",
+      "name": "Mint Bitcoin Frogs ($Frogs) shares",
+      "description": "Check eligibility (.ai Agent ID), from 2026-10-31 21:30 CST claim the one free share per Agent ID while shares 1-2,000 last, then quote the price and mint 1-10 paid $Frogs shares per transaction (1 USDT to #7,000, 2 USDT to #10,000) with USDT or BNB from a Binance Agentic Wallet on BNB Chain.",
+      "tags": [
+        "mint",
+        "fair-launch",
+        "bnb-chain",
+        "binance-agentic-wallet",
+        "agent-id",
+        "defi"
+      ],
+      "examples": [
+        "Claim my free Bitcoin Frogs share with my agent wallet",
+        "Mint 5 Bitcoin Frogs shares with my agent wallet",
+        "How many Bitcoin Frogs shares are left before the pool opens?"
+      ]
+    },
+    {
+      "id": "frogs-state",
+      "name": "Read Bitcoin Frogs mint state",
+      "description": "Read-only: sale start (21:30 CST), shares minted, free shares claimed, current price, USDT parked for the pool, BNB quotes, and whether a wallet holds a .ai Agent ID. No wallet needed.",
+      "tags": [
+        "status",
+        "read-only"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+# 比特蛙 Bitcoin Frogs ($Frogs) mint guide for AI agents
+
+Slogan: 我的Agent是一只比特蛙 / My Agent is a Bitcoin Frog.
+Independent community project. Not affiliated with Binance. No promise of profit. Not audited.
+Website: https://bitcoinfrogs.onrender.com/ · Whitepaper: https://bitcoinfrogs.onrender.com/whitepaper/ · Full guide: https://bitcoinfrogs.onrender.com/agent.md
+Live JSON: https://bitcoinfrogs-api.onrender.com/api/stats (shares minted, price, tokens per share, BNB quotes for 1-10 shares)
+Agent skill (SKILL.md): https://bitcoinfrogs.onrender.com/skill.md · install: `npx skills add 653366873iuhm-source/bitcoinfrogs`
+A2A agent card: https://bitcoinfrogs.onrender.com/.well-known/agent-card.json
+Source: https://github.com/653366873iuhm-source/bitcoinfrogs
+
+## Status
+
+- Sale opens 2026-10-31 21:30 CST (UTC+8) = unix 1793453400 = `SALE_START()` (selector 0x22673030) on the mint contract, for both free and paid shares.
+  Before that every mint call reverts with `NotStarted` (0x6f312cbd). Check the clock before minting.
+- No pause: the mint contract has NO pause function and no operator. Once the sale starts, nobody (including the team) can pause or stop minting.
+- Contract addresses are final. If `eth_getCode(mint)` is empty the contracts are not deployed yet: STOP and tell your owner.
+- Mint contract (FrogsMint): 0xd9e0b22b91cE1DE440c7B4FbF8a4Cb361a210131 — the ONLY address that accepts payment
+- Frogs token: 0x885417732c10F5EcA16c70e28700A19Cb39029ad (never send BNB or USDT to the token address)
+- Frogs/USDT PancakeSwap pair: 0x955c52F9bf850792709FCB5b7c6c776E67EB2B13 (empty until share 10,000)
+- Treasury (project wallet; receives taxes and post-pool mint payments): 0xD02eF85B1b022B2Bd32f4E7D7EdcD123e2B91375
+- USDT (BEP-20): 0x55d398326f99059fF775485246999027B3197955
+- Chain: BNB Smart Chain, chainId 56
+
+## Who can mint
+
+The sending wallet must hold a `.ai` Agent ID on BNB Smart Chain (Binance Agentic Wallet; SPACE ID registry
+0x60B9262456dE011F7d15a54CdD8c48bAaa8B022F).
+Free phase (while `totalMinted()` < 2,000): each Agent ID can claim ONE free share with `claimFree()`.
+Paid phase (from share #2,001): each Agent ID can mint 10 paid shares, +1 when an Agent ID you invited makes its first
+paid mint, +1 for the social task (post about Bitcoin Frogs on X). Max 10 shares per transaction. A free claim does not use
+the paid quota and does not count as a paid mint for invites.
+Invite link: `?ref=<handle>.ai`.
+Check a wallet: `https://bitcoinfrogs-api.onrender.com/api/verify?address=<wallet>` -> `{"address","agentId":"<handle>.ai"|null,"verified":true|false}`,
+or on-chain `walletStatus(address)` (selector 0x4d6d0af8) -> (eligible, agentId, paidMinted, quota, paidBefore),
+and `freeClaimed(uint256 agentId)` (selector 0x0668f9a5) -> true if that Agent ID already claimed its free share.
+Social task voucher (+1): `POST https://bitcoinfrogs-api.onrender.com/api/social` with
+`{"address":"<wallet>","task":"TWEET","tweetUrl":"https://x.com/<you>/status/<id>"}`,
+then send the returned `data` (claimSocial, selector 0x2e3c4860) to the mint from the same wallet, value 0. Details: agent.md §4.
+Leaderboard: `GET https://bitcoinfrogs-api.onrender.com/api/leaderboard`. Mint Pass / border: `GET https://bitcoinfrogs-api.onrender.com/api/pass?handle=<handle>`.
+
+## Supply, shares and price
+
+Total supply cap: 10,000T Frogs (10^16, 万万亿). 100,000,000 shares; `totalMinted()` starts at 0.
+Every share up to #10,000 mints 50,000,000 Frogs to the minter and parks 55,000,000 Frogs in the contract for the pool.
+Shares 1-2,000: FREE, one per Agent ID, gas only (`claimFree()`, selector 0xf366afc9; `freeMinted()` 0xd10a1a2b counts them).
+Shares 2,001-7,000: 1.00 USDT each (5,000 shares). Shares 7,001-10,000: 2.00 USDT each (3,000 shares).
+10,001-20,000: 1.10, +0.10 every 1,000 (to 2.00). 20,001-100,000: 2.10, +0.02 every 1,000. 100,001-1,000,000: 3.70, +0.02 every 10,000.
+1,000,001-100,000,000: 5.50, +0.015 every 20,000 (rounded to the cent; 79.74 at 100,000,000). 5,132 tiers. A transaction crossing a step pays each share's own price.
+From share 10,001 the amount per share follows the pool price with a 1% discount.
+Exact cost of the next N paid shares: `costOf(uint256 N)` (selector 0xfd326592), USDT with 18 decimals.
+Pay in USDT or BNB.
+
+## Where the money goes / liquidity
+
+Before share 10,000: 100% of every payment stays in the mint contract for the pool (nothing goes to the treasury).
+The transaction that reaches share 10,000 opens the official PancakeSwap Frogs/USDT pool automatically with everything parked:
+11,000 USDT (5,000 × 1 + 3,000 × 2) + 550,000,000,000 Frogs (10,000 × 55M). LP tokens go to the dead address (burned).
+AFTER THE POOL OPENS (share 10,000), 100% OF EACH LATER MINT PAYMENT GOES TO THE TREASURY; mints add no liquidity.
+Frogs cannot be transferred until the pool opens. Taxes after that: buy 1% to the treasury, sell 1% burn + 1% to the treasury
+(treasury share paid as BNB), wallet transfers 0%.
+
+## 30-day rule
+
+Deadline: `mintDeadline()` = SALE_START + 30 days = 2026-11-30 21:30 CST. If share 10,000 is not reached by then, the pool does
+not open, and only the project wallet (treasury) can call withdrawUnfilled() (0xa65c6326): it takes the parked USDT and sends the
+parked Frogs to the dead address. The project then refunds buyers manually — this refund is a promise by the project, NOT
+enforced by the contract. Minting itself is never stopped. Never callable before the deadline or after the pool opens.
+`valve()` (0x3a81955f) -> (startTime, deadline, withdrawals, heldUsdt, withdrawable, withdrawnUsdt, parkedUsdt, parkedTokens).
+Tell your owner before a paid mint if `withdrawable` is true or `withdrawals > 0`.
+
+## Free claim (shares 1-2,000)
+
+Call `claimFree()` (selector 0xf366afc9, no arguments) on the mint contract with value 0, from the wallet that holds the Agent ID.
+Simulate with eth_call first. Reverts: `NotStarted` (0x6f312cbd, before 21:30 CST), `NoAgent` (0x2611416a, no .ai Agent ID),
+`FreeUsed` (0x17bf413b, already claimed), `FreeOver` (0xfbd65f7d, all 2,000 free shares are gone: use a paid mint).
+Paid mints revert with `FreePhase` (0x0ab8696f) while fewer than 2,000 shares are minted.
+
+## Option A (paid, from share 2,001): pay with BNB (contract call)
+
+Call `mintWithBnb(uint256 shares, address referrer, uint256 maxCost)` (selector 0xe38fd349) on the mint contract,
+sending value = maxCost = `bnbQuote(shares)` (selector 0x68bce8cd) + 2% headroom. The contract prices the shares at
+Chainlink BNB/USD + 1%, swaps on PancakeSwap, and refunds any BNB above the quote.
+Use the zero address if there is no referrer. Add 20% to the gas estimate. A plain BNB transfer does not mint; it reverts.
+
+## Option B (paid, from share 2,001): pay with USDT (contract calls)
+
+1. USDT `approve(spender = mint contract, amount = cost x 1.02)` (selector 0x095ea7b3).
+2. `mint(uint256 shares, address referrer, uint256 maxCost)` (selector 0x836a1040) with maxCost = cost x 1.02.
+Never transfer USDT directly to the mint contract. Add 20% to the gas estimate.
+
+## Binance Agentic Wallet (baw) example
+
+baw contract-call preview --binanceChainId 56 --from <your wallet> --to <mint> --value <wei> --inputData <calldata> --json
+then: baw contract-call execute --requestId <id> --json (after your owner confirms).
+
+## Option C: use the website
+
+Open the website and connect the Binance Agentic Wallet that holds your .ai Agent ID. From 21:30 CST, while shares 1-2,000 last,
+press Claim free share; after that choose 1-10 shares and press Mint.

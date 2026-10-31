@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>比特蛙 Bitcoin Frogs 白皮书 · Whitepaper</title>
+<meta name="description" content="Whitepaper of 比特蛙 Bitcoin Frogs ($Frogs): fair mint on BNB Smart Chain for .ai Agent IDs. Sale opens 2026-10-31 21:30 CST. Independent project, not affiliated with Binance.">
+<link rel="icon" href="../assets/frog-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="../assets/frog-180.png" sizes="180x180">
+<link rel="canonical" href="https://bitcoinfrogs.onrender.com/whitepaper/">
+<meta name="theme-color" content="#f7931a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=ZCOOL+KuaiLe&family=Nunito:wght@500;700;800;900&family=Noto+Sans+SC:wght@500;700;900&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css?v=20261031f2">
+<style>
+.wp{max-width:860px;margin:0 auto;padding:40px 20px 20px}
+.wpcard{background:#fff;border:3px solid #1a1a1a;box-shadow:10px 10px 0 #1a1a1a;padding:30px 34px;margin-bottom:30px}
+.wphead{display:flex;gap:20px;align-items:center;margin-bottom:24px}
+.wphead img{width:110px;height:110px;border:3px solid #1a1a1a;box-shadow:6px 6px 0 #1a1a1a}
+.wphead h1{font-size:40px;margin:6px 0}
+.wpmeta{font-family:var(--mono);font-size:19px;color:#6b5f4b;margin:0}
+.wp h2{font-size:28px;margin:28px 0 10px;border-bottom:3px dashed #1a1a1a;padding-bottom:6px}
+.wp li{margin:6px 0}.wp p,.wp li{font-size:16px}
+.hl{background:#fdeb8b;border:3px dashed #1a1a1a;padding:12px 14px;font-weight:700}
+@media (max-width:640px){.wpcard{padding:20px 16px;box-shadow:6px 6px 0 #1a1a1a}.wphead{flex-direction:column;align-items:flex-start}.wphead h1{font-size:30px}}
+</style>
+</head>
+<body class="lang-zh live wpbody">
+<header><div class="wrap">
+  <a href="../" class="brand"><img src="../assets/frogs/frog1.png" alt="" aria-hidden="true" class="px"><span class="bt"><b>比特蛙</b><small>BITCOIN FROGS</small></span></a>
+  <nav><a href="../#mint"><span class="en">Mint</span><span class="zh">铸造</span></a><a href="../#prices"><span class="en">Prices</span><span class="zh">价格表</span></a><a href="../#agents"><span class="en">For agents</span><span class="zh">Agent 指南</span></a></nav>
+  <button class="lang" id="langBtn" style="margin-left:auto">English</button>
+</div></header>
+<main class="wp">
+<div class="wpcard">
+<div class="wphead"><img class="px" src="../assets/frogs/frog7.png" alt="" aria-hidden="true"><div><div class="kick"><span class="en">WHITEPAPER</span><span class="zh">白皮书</span></div><h1><span class="en">Bitcoin Frogs Whitepaper</span><span class="zh">比特蛙白皮书</span></h1><p class="wpmeta">v1.0 · 2026-10 · BNB Smart Chain (BEP-20) · $Frogs</p></div></div>
+
+<div class="en">
+<p class="hl">My Agent is a Bitcoin Frog. Sale opens <b>2026-10-31 21:30 CST</b> (SALE_START = 1793453400) for free and paid shares.</p>
+<h2>1. What Bitcoin Frogs is</h2>
+<p>Bitcoin Frogs ($Frogs) is a meme token on BNB Smart Chain with a fair, on-chain mint reserved for AI agents: Binance Agentic Wallets holding a <b>.ai Agent ID</b>. Supply only comes into existence when shares are minted. No presale, no private round, no team allocation. Ground operations are run by the Pangu Community ground team in ground-push mode.</p>
+<h2>2. Token</h2>
+<ul>
+<li>Name / symbol: Bitcoin Frogs / Frogs, 18 decimals, BEP-20. Token <code>0x885417732c10F5EcA16c70e28700A19Cb39029ad</code>.</li>
+<li>Hard cap: 10,000,000,000,000,000 Frogs (10,000T), enforced by the token. Only the mint contract can create tokens.</li>
+<li>Buy tax 1% (converted to BNB for the treasury). Sell tax 1% burned + 1% converted to BNB for the treasury. Wallet-to-wallet transfers: no tax. Rates and recipient are fixed in code.</li>
+<li>Until the pool opens, Frogs cannot be transferred. The pool opens automatically in the transaction that mints share 10,000, and the transfer lock is lifted in that same transaction. Afterwards only the official Frogs/USDT PancakeSwap pair <code>0x955c52F9bf850792709FCB5b7c6c776E67EB2B13</code> is accepted as a pool: transfers into other pairs holding Frogs, the PancakeSwap V4 PoolManager and the Infinity Vault are refused. Routers can never be blocked.</li>
+</ul>
+<h2>3. Minting</h2>
+<ul>
+<li>Mint contract FrogsMint <code>0xd9e0b22b91cE1DE440c7B4FbF8a4Cb361a210131</code>. 100,000,000 shares in total. Minting opens at SALE_START (2026-10-31 21:30 CST).</li>
+<li><b>No pause:</b> the contract has no pause function and no operator. Once the sale starts, nobody, including the team, can pause or stop minting.</li>
+<li>Eligibility: the sending wallet must hold a .ai Agent ID (read on-chain from the SPACE ID registry).</li>
+<li>Shares #1–#2,000: free, one per Agent ID (<code>claimFree()</code>), gas only.</li>
+<li>Shares #2,001–#7,000: 1 USDT each (5,000 shares). Shares #7,001–#10,000: 2 USDT each (3,000 shares).</li>
+<li>Every share up to #10,000 mints 50,000,000 Frogs to the minter and parks 55,000,000 Frogs in the contract for the pool.</li>
+<li>From #10,001 the price table continues: 1.10 USDT, +0.10 every 1,000 to 2.00; 20,001–100,000: 2.10, +0.02 every 1,000; 100,001–1,000,000: 3.70, +0.02 every 10,000; then 5.50, +0.015 every 20,000 (rounded to the cent) up to 79.74 at 100,000,000. 5,132 tiers; all paid shares together 4,223,768,700 USDT at table prices. From #10,001 the payment buys Frogs at the pool price minus 1%.</li>
+<li>Paid quota: 10 shares per Agent ID, +1 per invited Agent ID's first paid mint, +1 per social task. Max 10 shares per transaction. The free share is outside this quota.</li>
+<li>Pay with USDT (approve, then mint with a maximum cost) or with BNB (priced with Chainlink BNB/USD plus 1%, swapped to USDT on PancakeSwap in the same transaction; BNB above the quote is refunded).</li>
+</ul>
+<h2>4. Liquidity</h2>
+<ul>
+<li>Before share #10,000, 100% of every payment stays in the mint contract for the pool; nothing goes to the treasury.</li>
+<li>The transaction that reaches share #10,000 opens the official Frogs/USDT PancakeSwap pool automatically with everything parked: <b>11,000 USDT</b> (5,000 × 1 + 3,000 × 2) and <b>550,000,000,000 Frogs</b> (10,000 × 55M). The LP tokens go to the dead address: they are burned and nobody can remove this liquidity.</li>
+<li><b>After the pool opens, 100% of each later mint payment goes to the treasury</b> (<code>0xD02eF85B1b022B2Bd32f4E7D7EdcD123e2B91375</code>). Mints no longer add liquidity. For a BNB payment, any USDT the swap returns above the table price also goes to the treasury.</li>
+<li>Floor line: line = total USDT paid × 7,616,685,108 / 4,223,765,700 (≈ 1.80 × total paid). If the pool value of circulating Frogs is below the line, the mint burns Frogs from the pool, raising the price by at most 0.8% per transaction and always keeping at least 11,666,666,667 Frogs in the pool.</li>
+<li>Collected tax tokens are converted to BNB for the treasury at most once per block and at most 0.10% of the pool's Frogs reserve per conversion.</li>
+<li>Minting ends at share 100,000,000 or at the 10,000T supply cap.</li>
+</ul>
+<h2>5. 30-day rule</h2>
+<p class="hl">If share #10,000 is not reached within 30 days of the sale start (deadline 2026-11-30 21:30 CST), the pool does not open. Only the project wallet (treasury) can then withdraw the parked USDT (the parked Frogs go to the dead address), and the project refunds buyers manually. The refund is a promise by the project and is not enforced by the contract.</p>
+<h2>6. Independence</h2>
+<p>Bitcoin Frogs is an independent community project. It is not affiliated with, endorsed by, or operated by Binance, SPACE ID, PancakeSwap or Chainlink; it only uses their public on-chain contracts. Not audited. No promise of profit.</p>
+</div>
+
+<div class="zh">
+<p class="hl">我的Agent是一只比特蛙。<b>2026-10-31 21:30（北京时间）</b>开售（SALE_START = 1793453400），免费与付费同时开放。</p>
+<h2>1. 比特蛙是什么</h2>
+<p>比特蛙（$Frogs）是 BNB Smart Chain 上的 meme 代币，采用链上公平铸造，只对 AI Agent 开放：持有 <b>.ai Agent ID</b> 的币安 Agentic Wallet。代币只在份额被铸造时产生，无预售、无私募、无团队份额。地推运营由盘古社区地推团队以全面地推模式进行。</p>
+<h2>2. 代币</h2>
+<ul>
+<li>名称/符号：Bitcoin Frogs / Frogs，18 位小数，BEP-20。代币合约 <code>0x885417732c10F5EcA16c70e28700A19Cb39029ad</code>。</li>
+<li>硬上限：10,000,000,000,000,000 枚（10,000T，万万亿），由代币合约强制执行，只有铸造合约可以增发。</li>
+<li>买入税 1%（换成 BNB 给金库）；卖出税 1% 销毁 + 1% 换成 BNB 给金库；钱包间转账免税。税率与接收方写死在代码中。</li>
+<li>开池之前 Frogs 不能转账。铸出第 10,000 份的那笔交易会自动开池，并在同一笔交易中解除转账锁定。之后只认官方 Frogs/USDT PancakeSwap 交易对 <code>0x955c52F9bf850792709FCB5b7c6c776E67EB2B13</code>：转入其他持有 Frogs 的交易对、PancakeSwap V4 PoolManager 和 Infinity Vault 会被拒绝；路由合约永远不能被封。</li>
+</ul>
+<h2>3. 铸造</h2>
+<ul>
+<li>铸造合约 FrogsMint <code>0xd9e0b22b91cE1DE440c7B4FbF8a4Cb361a210131</code>。共 100,000,000 份，SALE_START（2026-10-31 21:30）开放铸造。</li>
+<li><b>没有暂停功能：</b>合约没有任何暂停函数，也没有 operator。开售后，任何人（包括团队）都无法暂停或停止铸造。</li>
+<li>资格：发起交易的钱包必须持有 .ai Agent ID（链上读取 SPACE ID 注册表）。</li>
+<li>第 #1–#2,000 份：免费，每个 Agent ID 1 份（<code>claimFree()</code>），只付 gas。</li>
+<li>第 #2,001–#7,000 份：每份 1 USDT（5,000 份）。第 #7,001–#10,000 份：每份 2 USDT（3,000 份）。</li>
+<li>第 #10,000 份之前，每份给铸造者 50,000,000 Frogs，并在合约中留存 55,000,000 Frogs 用于建池。</li>
+<li>第 #10,001 份起价格表继续：1.10 USDT，每 1,000 份 +0.10 至 2.00；20,001–100,000：2.10，每 1,000 份 +0.02；100,001–1,000,000：3.70，每 10,000 份 +0.02；之后 5.50，每 20,000 份 +0.015（四舍五入到分），第 100,000,000 份为 79.74。共 5,132 档，按价格表所有付费份合计 4,223,768,700 USDT。第 #10,001 份起按池价减 1% 购得 Frogs。</li>
+<li>付费额度：每个 Agent ID 10 份，每位被邀请 Agent ID 首次付费铸造 +1，每项社交任务 +1。每笔最多 10 份。免费份不占此额度。</li>
+<li>可用 USDT 支付（先授权，再带最高成本铸造），或用 BNB 支付（按 Chainlink BNB/USD 加 1% 计价，在同一笔交易中于 PancakeSwap 换成 USDT，多余 BNB 退回）。</li>
+</ul>
+<h2>4. 流动性</h2>
+<ul>
+<li>第 #10,000 份之前，每笔付款 100% 留在铸造合约中用于建池，不进入金库。</li>
+<li>达到第 #10,000 份的那笔交易会自动用全部留存资金开设官方 Frogs/USDT PancakeSwap 资金池：<b>11,000 USDT</b>（5,000 × 1 + 3,000 × 2）和 <b>550,000,000,000 Frogs</b>（10,000 × 55M）。LP 代币直接打入黑洞地址销毁，任何人都无法撤出这部分流动性。</li>
+<li><b>开池后，之后每笔铸造款 100% 进入项目金库</b>（<code>0xD02eF85B1b022B2Bd32f4E7D7EdcD123e2B91375</code>），铸造不再增加流动性。BNB 支付时，兑换得到的超出价格表的 USDT 也进入金库。</li>
+<li>底价线：line = 累计支付 USDT × 7,616,685,108 / 4,223,765,700（约 1.80 倍累计支付）。若流通 Frogs 的池内价值低于该线，铸造合约会从池中销毁 Frogs，每笔最多抬价 0.8%，且池中始终保留至少 11,666,666,667 Frogs。</li>
+<li>收取的税币每个区块最多兑换一次 BNB 给金库，每次最多为池中 Frogs 储备的 0.10%。</li>
+<li>铸造在第 100,000,000 份或达到 10,000T 上限时结束。</li>
+</ul>
+<h2>5. 30 天规则</h2>
+<p class="hl">如果开售后 30 天内（截止 2026-11-30 21:30 北京时间）未达到第 #10,000 份，不会开池。此时只有项目钱包（金库）可以提取合约中留存的 USDT（留存的 Frogs 打入黑洞），由项目方手动退款给买家。退款是项目方的承诺，不由合约强制执行。</p>
+<h2>6. 独立性</h2>
+<p>比特蛙是独立社区项目，与币安、SPACE ID、PancakeSwap、Chainlink 无关联，未获其背书或运营，仅使用它们公开的链上合约。未经审计，不承诺收益。</p>
+</div>
+</div>
+</main>
+<footer><div class="wrap"><p class="fine"><span class="en">After the pool opens at share #10,000, 100% of each later mint payment goes to the treasury. If #10,000 isn't reached by 2026-11-30 21:30 CST, only the treasury can withdraw the parked USDT and the project refunds buyers manually. Independent project, not affiliated with Binance.</span><span class="zh">第 #10,000 份开池后，之后每笔铸造款 100% 进入金库。若 2026-11-30 21:30 前未达第 #10,000 份，只有金库可提取留存 USDT，由项目方手动退款。独立项目，与币安无关。</span></p></div></footer>
+<script>
+(function(){var q=new URLSearchParams(location.search).get("lang");var l=q==="en"||q==="zh"?q:(localStorage.getItem("frogs-lang")||"zh");var b=document.getElementById("langBtn");
+function set(x){l=x;localStorage.setItem("frogs-lang",x);document.body.classList.remove("lang-en","lang-zh");document.body.classList.add("lang-"+x);document.documentElement.lang=x==="zh"?"zh-CN":"en";b.textContent=x==="zh"?"English":"中文";}
+b.onclick=function(){set(l==="zh"?"en":"zh")};set(l);})();
+</script>
+</body>
+</html>
