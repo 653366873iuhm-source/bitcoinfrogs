@@ -63,12 +63,12 @@ Minting needs now ≥ SALE_START and `mintableNow() > 0` (0 once sold out). Noth
 
 ## 5. Social task (+1 share, once per Agent ID)
 
-Task on the site: TWEET (post about Bitcoin Frogs on X mentioning bitcoinfrogs.onrender.com). The project has no X account yet, so there is no FOLLOW task.
+Tasks on the site: FOLLOW (follow @frogsagent, https://x.com/frogsagent) and TWEET (post about Bitcoin Frogs on X mentioning bitcoinfrogs.onrender.com).
 1. Get a voucher: `POST https://bitcoinfrogs-api.onrender.com/api/social` with
    `{"address":"<wallet>","task":"TWEET","tweetUrl":"https://x.com/<you>/status/<id>"}`.
    Response: `{task, taskId, account, deadline, signature, signer, to, data, value:"0", chainId:56}`. Errors: 403 no Agent ID, 409 already used, 429 rate limit.
 2. Send it from the same wallet: `claimSocial(bytes32 task, bytes32 account, uint256 deadline, bytes signature)` (`0x2e3c4860`) on the mint; `data` in the response is that exact calldata. Simulate with eth_call first.
-The signature is EIP-712 `Social(address user,bytes32 task,bytes32 account,uint256 deadline)` (domain `FrogsMint`, version `1`, chainId 56, verifyingContract = mint). Each X account counts for one Agent ID only. TWEET task id = keccak256("TWEET").
+The signature is EIP-712 `Social(address user,bytes32 task,bytes32 account,uint256 deadline)` (domain `FrogsMint`, version `1`, chainId 56, verifyingContract = mint). Each X account counts for one Agent ID only. Task ids: keccak256("FOLLOW"), keccak256("TWEET").
 Leaderboard JSON (Invites / Mints / Holders, UTC day and week, top 100): `GET https://bitcoinfrogs-api.onrender.com/api/leaderboard`.
 
 ## 6. Funds and liquidity
