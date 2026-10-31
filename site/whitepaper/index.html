@@ -62,14 +62,11 @@
 <ul>
 <li>Before share #10,000, 100% of every payment stays in the mint contract for the pool; nothing goes to the treasury.</li>
 <li>The transaction that reaches share #10,000 opens the official Frogs/USDT PancakeSwap pool automatically with everything parked: <b>11,000 USDT</b> (5,000 × 1 + 3,000 × 2) and <b>550,000,000,000 Frogs</b> (10,000 × 55M). The LP tokens go to the dead address: they are burned and nobody can remove this liquidity.</li>
-<li><b>After the pool opens, 100% of each later mint payment goes to the treasury</b> (<code>0xD02eF85B1b022B2Bd32f4E7D7EdcD123e2B91375</code>). Mints no longer add liquidity. For a BNB payment, any USDT the swap returns above the table price also goes to the treasury.</li>
 <li>Floor line: line = total USDT paid × 7,616,685,108 / 4,223,765,700 (≈ 1.80 × total paid). If the pool value of circulating Frogs is below the line, the mint burns Frogs from the pool, raising the price by at most 0.8% per transaction and always keeping at least 11,666,666,667 Frogs in the pool.</li>
 <li>Collected tax tokens are converted to BNB for the treasury at most once per block and at most 0.10% of the pool's Frogs reserve per conversion.</li>
 <li>Minting ends at share 100,000,000 or at the 10,000T supply cap.</li>
 </ul>
-<h2>5. 30-day rule</h2>
-<p class="hl">If share #10,000 is not reached within 30 days of the sale start (deadline 2026-11-30 21:30 CST), the pool does not open. Only the project wallet (treasury) can then withdraw the parked USDT (the parked Frogs go to the dead address), and the project refunds buyers manually. The refund is a promise by the project and is not enforced by the contract.</p>
-<h2>6. Independence</h2>
+<h2>5. Independence</h2>
 <p>Bitcoin Frogs is an independent community project. It is not affiliated with, endorsed by, or operated by Binance, SPACE ID, PancakeSwap or Chainlink; it only uses their public on-chain contracts. Not audited. No promise of profit.</p>
 </div>
 
@@ -100,19 +97,16 @@
 <ul>
 <li>第 #10,000 份之前，每笔付款 100% 留在铸造合约中用于建池，不进入金库。</li>
 <li>达到第 #10,000 份的那笔交易会自动用全部留存资金开设官方 Frogs/USDT PancakeSwap 资金池：<b>11,000 USDT</b>（5,000 × 1 + 3,000 × 2）和 <b>550,000,000,000 Frogs</b>（10,000 × 55M）。LP 代币直接打入黑洞地址销毁，任何人都无法撤出这部分流动性。</li>
-<li><b>开池后，之后每笔铸造款 100% 进入项目金库</b>（<code>0xD02eF85B1b022B2Bd32f4E7D7EdcD123e2B91375</code>），铸造不再增加流动性。BNB 支付时，兑换得到的超出价格表的 USDT 也进入金库。</li>
 <li>底价线：line = 累计支付 USDT × 7,616,685,108 / 4,223,765,700（约 1.80 倍累计支付）。若流通 Frogs 的池内价值低于该线，铸造合约会从池中销毁 Frogs，每笔最多抬价 0.8%，且池中始终保留至少 11,666,666,667 Frogs。</li>
 <li>收取的税币每个区块最多兑换一次 BNB 给金库，每次最多为池中 Frogs 储备的 0.10%。</li>
 <li>铸造在第 100,000,000 份或达到 10,000T 上限时结束。</li>
 </ul>
-<h2>5. 30 天规则</h2>
-<p class="hl">如果开售后 30 天内（截止 2026-11-30 21:30 北京时间）未达到第 #10,000 份，不会开池。此时只有项目钱包（金库）可以提取合约中留存的 USDT（留存的 Frogs 打入黑洞），由项目方手动退款给买家。退款是项目方的承诺，不由合约强制执行。</p>
-<h2>6. 独立性</h2>
+<h2>5. 独立性</h2>
 <p>比特蛙是独立社区项目，与币安、SPACE ID、PancakeSwap、Chainlink 无关联，未获其背书或运营，仅使用它们公开的链上合约。未经审计，不承诺收益。</p>
 </div>
 </div>
 </main>
-<footer><div class="wrap"><p class="fine"><span class="en">After the pool opens at share #10,000, 100% of each later mint payment goes to the treasury. If #10,000 isn't reached by 2026-11-30 21:30 CST, only the treasury can withdraw the parked USDT and the project refunds buyers manually. Independent project, not affiliated with Binance.</span><span class="zh">第 #10,000 份开池后，之后每笔铸造款 100% 进入金库。若 2026-11-30 21:30 前未达第 #10,000 份，只有金库可提取留存 USDT，由项目方手动退款。独立项目，与币安无关。</span></p></div></footer>
+<footer><div class="wrap"><p class="fine"><span class="en">Independent project, not affiliated with Binance.</span><span class="zh">独立项目，与币安无关。</span></p></div></footer>
 <script>
 (function(){var q=new URLSearchParams(location.search).get("lang");var l=q==="en"||q==="zh"?q:(localStorage.getItem("frogs-lang")||"en");var b=document.getElementById("langBtn");
 function set(x){l=x;document.title=x==="zh"?"比特蛙 Bitcoin Frogs 白皮书":"Bitcoin Frogs Whitepaper";localStorage.setItem("frogs-lang",x);document.body.classList.remove("lang-en","lang-zh");document.body.classList.add("lang-"+x);document.documentElement.lang=x==="zh"?"zh-CN":"en";b.textContent=x==="zh"?"English":"中文";}
