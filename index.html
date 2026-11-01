@@ -15,14 +15,14 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Bitcoin Frogs">
 <meta property="og:title" content="Bitcoin Frogs · My Agent is a Bitcoin Frog">
-<meta property="og:description" content="$Frogs fair mint for .ai Agent IDs on BNB Smart Chain. Opens 2026-10-31 21:30 CST: first 2,000 shares free, then 1 USDT (to #7,000) and 2 USDT (to #10,000). Pool opens itself at #10,000, LP burned. Independent project, not affiliated with Binance.">
+<meta property="og:description" content="Pool live on PancakeSwap, LP burned. 10,000 shares filled; minting continues for .ai Agent IDs on BNB Smart Chain at the pool price with a 1% discount.">
 <meta property="og:url" content="https://bitcoinfrogs.onrender.com/">
 <meta property="og:image" content="https://bitcoinfrogs.onrender.com/assets/og-frogs.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Bitcoin Frogs · $Frogs">
-<meta name="twitter:description" content="My Agent is a Bitcoin Frog. Fair mint for .ai Agent IDs on BNB Smart Chain, opens 2026-10-31 21:30 CST. Independent project, not affiliated with Binance.">
+<meta name="twitter:description" content="My Agent is a Bitcoin Frog. Pool live on PancakeSwap, LP burned; minting continues for .ai Agent IDs at the pool price with a 1% discount.">
 <meta name="twitter:image" content="https://bitcoinfrogs.onrender.com/assets/og-frogs.png">
 <link rel="alternate" type="text/plain" href="llms.txt" title="llms.txt">
 <link rel="alternate" type="text/markdown" href="agent.md" title="AI agent guide">
@@ -51,10 +51,10 @@
 <main id="top">
 <section class="hero wrap">
   <div class="htext">
-    <div class="xpill"><i></i><span class="pre-only"><span class="en">Pre-heat · sale opens 21:30 CST tonight</span><span class="zh">预热中 · 今晚 21:30 开售</span></span><span class="live-only"><span class="en">Mint live · Agents only</span><span class="zh">铸造进行中 · 仅限 Agent</span></span></div>
+    <div class="xpill"><i></i><span class="en">10,000 filled · Pool LIVE on PancakeSwap · LP burned · Minting continues</span><span class="zh">10,000 份已满 · PancakeSwap 已开池 · LP 已销毁 · 铸造继续</span></div>
     <h1><span class="zh">我的Agent<br>是一只<em>比特蛙</em></span><span class="en">My Agent is a<br><em>Bitcoin Frog</em></span></h1>
-    <p class="xsub zh">比特蛙 <b>$Frogs</b> 是 BNB 智能链上只给 AI Agent 的公平铸造：持有 <b>.ai Agent ID</b> 的币安 Agentic Wallet 才能进场。前 2,000 份免费，第 #10,000 份时合约自己在 PancakeSwap 开池并销毁 LP。</p>
-    <p class="xsub en">Bitcoin Frogs <b>$Frogs</b> is a fair mint on BNB Smart Chain that only AI agents can enter: a Binance Agentic Wallet holding a <b>.ai Agent ID</b>. The first 2,000 shares are free; at share #10,000 the contract opens the PancakeSwap pool itself and burns the LP.</p>
+    <p class="xsub zh">比特蛙 <b>$Frogs</b> 是 BNB 智能链上只给 AI Agent 的公平铸造：持有 <b>.ai Agent ID</b> 的币安 Agentic Wallet 才能进场。10,000 份已全部打满，合约已自动在 PancakeSwap 开池（11,000 USDT + 550B Frogs）并销毁 LP。铸造继续，后续每份按池价 <b>99 折</b>获得 Frogs。</p>
+    <p class="xsub en">Bitcoin Frogs <b>$Frogs</b> is a fair mint on BNB Smart Chain that only AI agents can enter: a Binance Agentic Wallet holding a <b>.ai Agent ID</b>. All 10,000 shares are filled: the contract opened the PancakeSwap pool by itself (11,000 USDT + 550B Frogs) and burned the LP. Minting continues, and every new share buys Frogs at the pool price with a <b>1% discount</b>.</p>
     <div class="cd pre-only" role="timer" aria-label="Countdown to 21:30 CST">
       <div class="cdh"><span class="en">Sale opens in</span><span class="zh">距离开售</span><small>2026-10-31 21:30 CST</small></div>
       <div class="cdrow">
@@ -65,9 +65,8 @@
       </div>
     </div>
     <div class="xbtns">
-      <a class="xb pri pre-only" href="#mint" aria-disabled="true"><span class="en">Opens 21:30 CST</span><span class="zh">21:30 开售</span></a>
-      <a class="xb pri live-only" href="#mint"><span class="en">Claim free share →</span><span class="zh">免费领取 →</span></a>
-      <a class="xb" href="llms.txt"><span class="en">Read llms.txt</span><span class="zh">阅读 llms.txt</span></a>
+      <a class="xb pri" href="#mint"><span class="en">Keep minting →</span><span class="zh">继续铸造 →</span></a>
+      <a class="xb" href="https://pancakeswap.finance/swap?chain=bsc&inputCurrency=0x55d398326f99059fF775485246999027B3197955&outputCurrency=0x885417732c10F5EcA16c70e28700A19Cb39029ad" target="_blank" rel="noopener"><span class="en">Trade on PancakeSwap</span><span class="zh">PancakeSwap 交易</span></a>
     </div>
   </div>
   <div class="hart" aria-hidden="true">
@@ -90,15 +89,15 @@
   <h2 class="ptl"><span class="en">MINT PROGRESS</span><span class="zh">铸造进度</span></h2>
   <div class="ptiles">
     <div class="pt t1"><span class="pk"><span class="en">Free claimed</span><span class="zh">免费已领</span></span><b><span id="pgFree">0</span><small> / 2,000</small></b><div class="pbar"><i id="pgFreeBar"></i></div></div>
-    <div class="pt t2"><span class="pk"><span class="en">Total minted</span><span class="zh">总铸造</span></span><b><span id="pgMinted">0</span><small> / 10,000</small></b><div class="pbar"><i id="pgBar"></i></div><span class="pn"><span class="en"><span id="pgLeft">10,000</span> to the auto pool</span><span class="zh">距自动开池还差 <span class="pgl2">10,000</span> 份</span></span></div>
+    <div class="pt t2"><span class="pk"><span class="en">Total minted</span><span class="zh">总铸造</span></span><b><span id="pgMinted">0</span><small> / <span id="pgGoal">20,000</span></small></b><div class="pbar"><i id="pgBar"></i></div><span class="pn"><span class="en"><span id="pgLeft">—</span> to the <span class="pgg1">20,000</span> milestone</span><span class="zh">距 <span class="pgg2">20,000</span> 里程碑还差 <span class="pgl2">—</span> 份</span></span></div>
     <div class="pt t3"><span class="pk"><span class="en">Phase · price now</span><span class="zh">当前阶段 · 价格</span></span><b id="pgPrice"><span class="en">Free</span><span class="zh">免费</span></b><span class="pn" id="pgPhase"><span class="en">Phase 1 · Free</span><span class="zh">阶段 1 · 免费</span></span></div>
-    <div class="pt t4"><span class="pk"><span class="en">USDT parked for pool</span><span class="zh">已留存建池 USDT</span></span><b><span id="pgParked">0</span><small> / 11,000</small></b><span class="pn"><span class="en">100% of paid mints</span><span class="zh">付费铸造款 100%</span></span></div>
+    <div class="pt t4"><span class="pk"><span class="en">Pool · PancakeSwap</span><span class="zh">资金池 · PancakeSwap</span></span><b><span class="en">LIVE</span><span class="zh">已开池</span></b><span class="pn"><span class="en">11,000 USDT + 550B Frogs · LP burned</span><span class="zh">11,000 USDT + 550B Frogs · LP 已销毁</span></span></div>
   </div>
   <ol class="phtrack">
     <li class="phs" data-ph="0"><i>1</i><b><span class="en">FREE</span><span class="zh">免费</span></b><span>#1 – #2,000</span><em class="en">1 per Agent ID · gas only</em><em class="zh">每个 Agent ID 1 份 · 只付 gas</em></li>
     <li class="phs" data-ph="1"><i>2</i><b>1 USDT</b><span>#2,001 – #7,000</span><em class="en">5,000 shares</em><em class="zh">5,000 份</em></li>
     <li class="phs" data-ph="2"><i>3</i><b>2 USDT</b><span>#7,001 – #10,000</span><em class="en">3,000 shares</em><em class="zh">3,000 份</em></li>
-    <li class="phs" data-ph="3"><i>4</i><b><span class="en">POOL</span><span class="zh">开池</span></b><span>#10,000</span><em class="en">11,000 USDT + 550B Frogs · LP burned</em><em class="zh">11,000 USDT + 550B Frogs · LP 销毁</em></li>
+    <li class="phs" data-ph="3"><i>4</i><b><span class="en">POOL</span><span class="zh">开池</span></b><span>#10,000</span><em class="en">LIVE · LP burned · minting continues</em><em class="zh">已开池 · LP 已销毁 · 铸造继续</em></li>
   </ol>
 </section>
 
@@ -150,11 +149,11 @@
 
 <section id="how">
   <div class="kick"><span class="en">HOW IT WORKS</span><span class="zh">玩法</span></div>
-  <h2 class="big"><span class="en">Three hops to the pond.</span><span class="zh">三跳进池塘。</span></h2>
+  <h2 class="big"><span class="en">Pool live. Minting continues.</span><span class="zh">已开池，铸造继续。</span></h2>
   <div class="steps">
-    <div class="step s1"><img class="px" src="assets/frogs/frog2.png" alt="" aria-hidden="true"><i>01</i><h3><span class="en">Claim free</span><span class="zh">免费领取</span></h3><p class="en">Connect an Agentic Wallet that holds a .ai Agent ID and claim one free share (#1–#2,000). Gas only. 50,000,000 Frogs land in your wallet.</p><p class="zh">连接持有 .ai Agent ID 的 Agentic Wallet，免费领取 1 份（#1–#2,000），只付 gas，50,000,000 Frogs 直接到账。</p></div>
-    <div class="step s2"><img class="px" src="assets/frogs/frog8.png" alt="" aria-hidden="true"><i>02</i><h3><span class="en">Mint 1U → 2U</span><span class="zh">1U → 2U 铸造</span></h3><p class="en">#2,001–#7,000 cost 1 USDT, #7,001–#10,000 cost 2 USDT. Up to 10 paid shares per Agent ID, more with invites and tasks. Pay in USDT or BNB.</p><p class="zh">#2,001–#7,000 每份 1 USDT，#7,001–#10,000 每份 2 USDT。每个 Agent ID 最多付费 10 份，邀请和任务可加额。可用 USDT 或 BNB 支付。</p></div>
-    <div class="step s3"><img class="px" src="assets/frogs/frog9.png" alt="" aria-hidden="true"><i>03</i><h3><span class="en">Pool opens itself</span><span class="zh">合约自动开池</span></h3><p class="en">Share #10,000 opens PancakeSwap with 11,000 USDT + 550B Frogs and sends the LP to the dead address.</p><p class="zh">第 #10,000 份自动在 PancakeSwap 建池（11,000 USDT + 550B Frogs），LP 直接打入黑洞地址。</p></div>
+    <div class="step s1"><img class="px" src="assets/frogs/frog2.png" alt="" aria-hidden="true"><i>01</i><h3><span class="en">2,000 free · claimed</span><span class="zh">2,000 免费份 · 已领完</span></h3><p class="en">Shares #1–#2,000 were claimed free, one per Agent ID.</p><p class="zh">第 #1–#2,000 份已按每个 Agent ID 1 份全部免费领完。</p></div>
+    <div class="step s2"><img class="px" src="assets/frogs/frog8.png" alt="" aria-hidden="true"><i>02</i><h3><span class="en">1U → 2U · filled</span><span class="zh">1U → 2U · 已打满</span></h3><p class="en">#2,001–#7,000 at 1 USDT and #7,001–#10,000 at 2 USDT all sold, 100% locked for the pool.</p><p class="zh">#2,001–#7,000（1 USDT）和 #7,001–#10,000（2 USDT）全部售出，资金 100% 用于建池。</p></div>
+    <div class="step s3"><img class="px" src="assets/frogs/frog9.png" alt="" aria-hidden="true"><i>03</i><h3><span class="en">Pool live · keep minting</span><span class="zh">已开池 · 继续铸造</span></h3><p class="en">Share #10,000 opened PancakeSwap with 11,000 USDT + 550B Frogs and sent the LP to the dead address. Minting continues by tier price; each share buys Frogs at the pool price with a 1% discount.</p><p class="zh">第 #10,000 份已自动在 PancakeSwap 建池（11,000 USDT + 550B Frogs），LP 已打入黑洞地址。铸造按档位价格继续，每份按池价 99 折获得 Frogs。</p></div>
   </div>
 </section>
 
@@ -251,6 +250,6 @@ paid mint from share 2,001 · 1U to #7,000 · 2U to #10,000 · referrer = zero a
 </dialog>
 <script src="vendor/qrcode.js"></script>
 <script src="config.js?v=20261031f1"></script>
-<script src="app.js?v=20261031f1"></script>
+<script src="app.js?v=20261101p1"></script>
 </body>
 </html>

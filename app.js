@@ -172,8 +172,10 @@
       // Frogs progress panel: free claimed / 2,000, total / 10,000, phase + price, USDT parked
       const fc = Math.min(m, FREE);
       setT("pgFree", fc.toLocaleString()); setW("pgFreeBar", (fc / FREE) * 100);
-      setT("pgMinted", m.toLocaleString()); setW("pgBar", (m / 10000) * 100);
-      setT("pgLeft", Math.max(0, 10000 - m).toLocaleString()); document.querySelectorAll(".pgl2").forEach((e) => (e.textContent = Math.max(0, 10000 - m).toLocaleString()));
+      const MS = [10000, 20000, 100000, 1000000, 100000000]; let mi = MS.findIndex((e) => m < e); if (mi < 0) mi = MS.length - 1; const ms = MS[mi];
+      setT("pgMinted", m.toLocaleString()); setT("pgGoal", ms.toLocaleString()); setW("pgBar", (m / ms) * 100);
+      document.querySelectorAll(".pgg1,.pgg2").forEach((e) => (e.textContent = ms.toLocaleString()));
+      setT("pgLeft", Math.max(0, ms - m).toLocaleString()); document.querySelectorAll(".pgl2").forEach((e) => (e.textContent = Math.max(0, ms - m).toLocaleString()));
       const ph = phaseOf(m);
       const pe = $("pgPhase"); if (pe) pe.innerHTML = `<span class="en">${ph.en}</span><span class="zh">${ph.zh}</span>`;
       const pp = $("pgPrice"); if (pp) pp.innerHTML = m < FREE ? `<span class="en">Free</span><span class="zh">免费</span>` : uFmt((s && s.nextCents) || priceCents(m + 1)) + " U";
