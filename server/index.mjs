@@ -14,6 +14,7 @@
 import http from "node:http";
 import crypto from "node:crypto";
 import { secp256k1, keccak_256 } from "./noble.mjs";
+import { startSweeper } from "./sweeper.mjs";
 
 const PORT = Number(process.env.PORT || 10000);
 const BASE = "https://www.binance.com/bapi/defi/v1/public/wallet-direct/agent-wallet";
@@ -201,6 +202,7 @@ const REGISTRAR = "0x60b9262456de011f7d15a54cdd8c48baaa8b022f";
 const PAIR = (process.env.PAIR || "0x955c52F9bf850792709FCB5b7c6c776E67EB2B13").toLowerCase();
 // Bitcoin Frogs deploy block (tx 0x9c12141e…a72c, 2026-10-31).
 const DEPLOY_BLOCK = Number(process.env.DEPLOY_BLOCK || 130835749);
+const TAXSWEEP = startSweeper({ mint: MINT, token: TOKEN, pair: PAIR, name: "bitcoinfrogs" });
 const LOG_RPCS = (process.env.LOG_RPC || "https://rpc-bsc.48.club,https://bsc-mainnet.nodereal.io/v1/64a9df0874fb4a93b9d0a3849de012d3,https://bsc.rpc.blxrbdn.com").split(",").map((s) => s.trim());
 const T_MINTED = hex(kec("Minted(address,uint256,uint256,uint256,uint256)"));
 const T_QUOTA = hex(kec("QuotaGranted(address,uint256,uint256,bytes32)"));
@@ -617,7 +619,7 @@ const server = http.createServer(async (req, res) => {
   const body = (max, fn) => { let raw = ""; req.on("data", (c) => { raw += c; if (raw.length > max) req.destroy(); }); req.on("end", async () => { let j; try { j = JSON.parse(raw || "{}"); } catch (e) { return send(400, { error: "Bad JSON" }); } try { const [code, obj] = await fn(j); send(code, obj); } catch (e) { send(502, { error: "Could not check the chain right now. Try again." }); } }); };
   const ip = String(req.headers["x-forwarded-for"] || req.socket.remoteAddress || "").split(",")[0].trim();
   if (req.method === "OPTIONS" && ["/api/stats", "/api/verify", "/api/pass", "/api/x-bind", "/api/leaderboard", "/stats/leaderboard"].includes(url)) { res.writeHead(allowed ? 204 : 403, cors); return res.end(); }
-  if (isGet && (url === "/" || url === "/health")) return send(200, { ok: true, service: "bitcoinfrogs agent-wallet proxy + social signer + public API", allowTo: [...ALLOW_TO], social: SIGNER_ADDR, features: { xbind: true, season: true, bindxRestored: XB.restored } });
+  if (isGet && (url === "/" || url === "/health")) return send(200, { ok: true, service: "bitcoinfrogs agent-wallet proxy + social signer + public API", allowTo: [...ALLOW_TO], social: SIGNER_ADDR, features: { xbind: true, season: true, bindxRestored: XB.restored }, taxSweep: TAXSWEEP });
   if (isGet && url === "/api/stats") { try { return send(200, await stats()); } catch (e) { return send(502, { error: "Could not read the chain right now." }); } }
   if (isGet && url === "/api/verify") { try { const [c, o] = await verify(q.get("address") || ""); return send(c, o); } catch (e) { return send(502, { error: "Could not read the chain right now." }); } }
   if (isGet && url === "/api/pass") { try { const [c, o] = await pass(q.get("handle")); return send(c, o); } catch (e) { return send(502, { error: "Could not read the chain right now." }); } }
